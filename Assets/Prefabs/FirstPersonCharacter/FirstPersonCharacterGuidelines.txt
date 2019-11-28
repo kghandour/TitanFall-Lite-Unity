@@ -1,4 +1,5 @@
-The first-person character is a single prefab which is designed to be used as-is. There's usually no need to create your own from the separate scripts provided. Just drop the prefab into your scene and you're good to go.
+The first-person character is a single prefab which is designed to be used as-is.
+There's usually no need to create your own from the separate scripts provided. Just drop the prefab into your scene and you're good to go.
 
 
 The simplest way to get started with the First Person Character is to follow these steps:
