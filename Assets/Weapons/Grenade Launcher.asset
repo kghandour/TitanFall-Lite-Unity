@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Grenade Launcher
   m_EditorClassIdentifier: 
   modelPrefab: {fileID: 0}
-  weaponName: Grenade Launcher
+  weaponName: Grenade
   range: 4
   damage: 125
