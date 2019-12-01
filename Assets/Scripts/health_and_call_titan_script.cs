@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class health_and_call_titan_script : MonoBehaviour
 {
-    public int titanfallMeter;
+    public static int titanfallMeter;
     private int MAX_TITANFALLMETER = 100;
     public bool titanDeployed;
     public int health;
@@ -39,8 +39,9 @@ public class health_and_call_titan_script : MonoBehaviour
                 performTitanFall();
         }
 
-        if (isTitanClose())
+        if (isTitanClose() && Titan.gameObject.activeInHierarchy)
         {
+            
             embarkAvailable.gameObject.SetActive(true);
             if (Input.GetKeyDown("e"))
             {
@@ -63,7 +64,7 @@ public class health_and_call_titan_script : MonoBehaviour
     }
 
     public bool isTitanClose()
-    { 
+    {
         float dist = Vector3.Distance(Titan.transform.position, transform.position);
         return dist < rangeToEmbark;  
     }
@@ -76,7 +77,9 @@ public class health_and_call_titan_script : MonoBehaviour
         Vector3 positionAfterEmbark = Titan.transform.position;
         Pilot.transform.position = positionAfterEmbark;
         Titan.SetActive(false);
-        //Titan.transform.parent = Pilot.transform;
+        Titan.transform.parent = Pilot.transform;
+        titanDeployed = true;
+        embarkAvailable.gameObject.SetActive(false);
     }
 
     IEnumerator addHealth()
