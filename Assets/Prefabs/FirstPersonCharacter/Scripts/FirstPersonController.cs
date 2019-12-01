@@ -39,7 +39,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private Vector3 m_OriginalCameraPosition;
         private float m_StepCycle;
         private float m_NextStep;
-        private bool m_Jumping;
+        private int m_Jumping = 0;
         private AudioSource m_AudioSource;
 
         // Use this for initialization
@@ -52,7 +52,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_HeadBob.Setup(m_Camera, m_StepInterval);
             m_StepCycle = 0f;
             m_NextStep = m_StepCycle/2f;
-            m_Jumping = false;
+            m_Jumping = 0;
             m_AudioSource = GetComponent<AudioSource>();
 			m_MouseLook.Init(transform , m_Camera.transform);
         }
@@ -63,7 +63,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         {
             RotateView();
             // the jump state needs to read here to make sure it is not missed
-            if (!m_Jump)
+            if (!m_Jump && m_Jumping < 2)
             {
                 m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
             }
@@ -73,9 +73,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 StartCoroutine(m_JumpBob.DoBobCycle());
                 PlayLandingSound();
                 m_MoveDir.y = 0f;
-                m_Jumping = false;
+                m_Jumping = 0;
             }
-            if (!m_CharacterController.isGrounded && !m_Jumping && m_PreviouslyGrounded)
+            if (!m_CharacterController.isGrounded && m_Jumping == 0 && m_PreviouslyGrounded)
             {
                 m_MoveDir.y = 0f;
             }
@@ -112,19 +112,20 @@ namespace UnityStandardAssets.Characters.FirstPerson
             if (m_CharacterController.isGrounded)
             {
                 m_MoveDir.y = -m_StickToGroundForce;
-
-                if (m_Jump)
-                {
-                    m_MoveDir.y = m_JumpSpeed;
-                    PlayJumpSound();
-                    m_Jump = false;
-                    m_Jumping = true;
-                }
             }
             else
             {
                 m_MoveDir += Physics.gravity*m_GravityMultiplier*Time.fixedDeltaTime;
             }
+
+            if (m_Jump)
+            {
+                m_MoveDir.y = m_JumpSpeed;
+                PlayJumpSound();
+                m_Jump = false;
+                m_Jumping++;
+            }
+
             m_CollisionFlags = m_CharacterController.Move(m_MoveDir*Time.fixedDeltaTime);
 
             ProgressStepCycle(speed);
