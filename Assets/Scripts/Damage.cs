@@ -25,18 +25,25 @@ public class Damage : MonoBehaviour
             enemyStats.health -= WeaponManager.damageAmount;
             if (enemyStats.health <= 0)
             {
-                if (Stats.titanFall <= 100)
+                if (health_and_call_titan_script.titanfallMeter <= 100)
                 {
                     if (collision.gameObject.CompareTag("enemyPilot"))
                     {
-                        Stats.titanFall += 10;
+                        health_and_call_titan_script.titanfallMeter += 10;
+                        print("Impact pilot");
                     }
                     else if (collision.gameObject.CompareTag("enemyTitan"))
                     {
-                        Stats.titanFall += 50;
+                        health_and_call_titan_script.titanfallMeter += 50;
+                        print("impact enemyTitan");
                     }
-                    print("Titanfall " + Stats.titanFall);
+                    print("Titanfall " + health_and_call_titan_script.titanfallMeter);
                     
+                }
+
+                if (health_and_call_titan_script.titanfallMeter > 100)
+                {
+                    health_and_call_titan_script.titanfallMeter = 100;
                 }
                 collision.gameObject.SetActive(false);
             }

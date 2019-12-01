@@ -63,6 +63,7 @@ public class WeaponFire : MonoBehaviour
                 if (bulletsList.Count < WeaponManager.ammoCount)
                 {
                     GameObject cloneObject;
+                    bulletObject.SetActive(true);
                     Rigidbody cloneRigidBody;
 
                     cloneObject = Instantiate(bulletObject, this.transform.position, bulletObject.transform.rotation);

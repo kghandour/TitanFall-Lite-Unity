@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8335122402766010835
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8335122402766010834}
+  - component: {fileID: 8335122402766010833}
+  m_Layer: 0
+  m_Name: WeaponManager
+  m_TagString: Weapon
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8335122402766010834
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8335122402766010835}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8335122402766010833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8335122402766010835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 032278e4a5a88415789d70c210e3b0f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AssaultRifle: {fileID: 11400000, guid: 351cced05ee144470a423f32f6a29d0b, type: 2}
+  Shotgun: {fileID: 11400000, guid: 68ba8aa102d11493f81a6736e1833aeb, type: 2}
+  Sniper: {fileID: 11400000, guid: 342670810bb53453ca1169ec24e0f3bc, type: 2}
+  GrenadeLauncher: {fileID: 11400000, guid: c05a869ea87bd45eeb6156721e9dc0a8, type: 2}
+  RocketLauncher: {fileID: 11400000, guid: 79f6482b26e3246cbbafd546e35de2d7, type: 2}

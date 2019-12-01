@@ -11,6 +11,7 @@ TagManager:
   - enemyTitan
   - enemyPilot
   - Weapon
+  - Floor
   layers:
   - Default
   - TransparentFX
