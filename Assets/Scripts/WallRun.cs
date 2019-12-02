@@ -46,6 +46,7 @@ public class WallRun : MonoBehaviour
                 fp_rigidbody.useGravity = false;
                 fp_rigidbody.velocity = new Vector3(fp_rigidbody.velocity.x, 0, fp_rigidbody.velocity.z);
                 fp_controller.mouseLook.LookRotation(fp_controller.transform, fp_camera.transform, 30);
+                fp_controller.m_wall_running = true;
             } else if (Physics.Raycast(transform.position, -transform.right, out hitL, 1))
             {
                 wall_left = true;
@@ -53,6 +54,7 @@ public class WallRun : MonoBehaviour
                 fp_rigidbody.useGravity = false;
                 fp_rigidbody.velocity = new Vector3(fp_rigidbody.velocity.x, 0, fp_rigidbody.velocity.z);
                 fp_controller.mouseLook.LookRotation(fp_controller.transform, fp_camera.transform, -30);
+                fp_controller.m_wall_running = true;
             }
         } else if(
             jump_count >= 1
@@ -74,6 +76,7 @@ public class WallRun : MonoBehaviour
 
             wall_right = false;
             wall_left = false;
+            fp_controller.m_wall_running = false;
         }
     }
 
