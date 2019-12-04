@@ -37,7 +37,7 @@ public class WallRun : MonoBehaviour
             wall_left = false;
         }
 
-        if (Input.GetKey(KeyCode.W) && !fp_controller.Grounded && jump_count <= 0)
+        if (Input.GetKey(KeyCode.W) && !fp_controller.Grounded && jump_count <= 0 && fp_controller.m_Jumping > 0)
         {
             if(Physics.Raycast(transform.position, transform.right, out hitR, 1))
             {
