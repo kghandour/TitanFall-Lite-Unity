@@ -4,18 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
-<<<<<<< HEAD
-  - Grenade
-  - Rocket
-  - Primary
-  - Heavy
-  - enemyTitan
-  - enemyPilot
   - Weapon
-  - Floor
-=======
-  - primweapon
->>>>>>> Models uploaded and Main Menu UI implemented in Marwan Scene
   layers:
   - Default
   - TransparentFX

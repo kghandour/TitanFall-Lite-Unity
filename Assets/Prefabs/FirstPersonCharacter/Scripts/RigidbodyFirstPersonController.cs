@@ -83,13 +83,14 @@ namespace UnityStandardAssets.Characters.FirstPerson
         public AdvancedSettings advancedSettings = new AdvancedSettings();
 
         public bool m_wall_running = false;
+        public bool can_jump = true;
 
         private Rigidbody m_RigidBody;
         private CapsuleCollider m_Capsule;
         private float m_YRotation;
         private Vector3 m_GroundContactNormal;
         private bool m_Jump, m_PreviouslyGrounded, m_IsGrounded;
-        private int m_Jumping;
+        public int m_Jumping;
 
         public Vector3 Velocity
         {
@@ -131,7 +132,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         {
             RotateView();
 
-            if (CrossPlatformInputManager.GetButtonDown("Jump") && !m_Jump)
+            if (CrossPlatformInputManager.GetButtonDown("Jump") && !m_Jump && can_jump)
             {
                 m_Jump = true;
             }
