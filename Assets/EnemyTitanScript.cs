@@ -27,6 +27,8 @@ public class EnemyTitanScript : MonoBehaviour
 
     public GameObject gun;
 
+    public ParticleSystem flare;
+
     private bool isFollowingFlag = true;
     private bool isWalkingFlag = true;
 
@@ -76,6 +78,13 @@ public class EnemyTitanScript : MonoBehaviour
         State = StateEnum.RUN;
     }
 
+    public IEnumerator delay()
+    {
+        yield return new WaitForSeconds(0.15f);
+
+        flare.enableEmission = true;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -93,12 +102,16 @@ public class EnemyTitanScript : MonoBehaviour
         if (anim.GetBool("isFollowing") && !anim.GetBool("isFiring"))
         {
             enemy.destination = (player.transform.position);
+
+            flare.enableEmission = false;
             //transform.position += enemy.desiredVelocity * Time.deltaTime;
         }
 
         if (anim.GetBool("isFiring"))
         {
             enemy.destination = transform.position;
+            StartCoroutine("delay");
+            Debug.Log(flare.isPlaying);
             //gun.transform.LookAt(transform.InverseTransformDirection(Vector3.forward)); 
         }
 

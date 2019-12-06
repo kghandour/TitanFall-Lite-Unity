@@ -7,6 +7,7 @@ public class EnemyShootingScript : MonoBehaviour
     public float damage = 10f;
     public float range = 100f;
 
+
     public GameObject shotStart;
 
 
@@ -39,6 +40,10 @@ public class EnemyShootingScript : MonoBehaviour
         {
             if (hit.transform.name == "FPSController")
                 Debug.Log(hit.transform.name);
+            //else
+            //{
+            //    Debug.Log("DIDN'T HIT");
+            //}
         }
     }
 

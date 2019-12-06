@@ -9,4 +9,6 @@ public class TargetScript : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawSphere(transform.position, 0.3f);
     }
+
+    
 }
