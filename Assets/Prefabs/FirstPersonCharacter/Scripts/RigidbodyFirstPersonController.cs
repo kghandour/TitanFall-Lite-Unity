@@ -82,13 +82,15 @@ namespace UnityStandardAssets.Characters.FirstPerson
         public MouseLook mouseLook = new MouseLook();
         public AdvancedSettings advancedSettings = new AdvancedSettings();
 
+        public bool m_wall_running = false;
+        public bool can_jump = true;
 
         private Rigidbody m_RigidBody;
         private CapsuleCollider m_Capsule;
         private float m_YRotation;
         private Vector3 m_GroundContactNormal;
-        private bool m_Jump, m_PreviouslyGrounded, m_Jumping, m_IsGrounded;
-
+        private bool m_Jump, m_PreviouslyGrounded, m_IsGrounded;
+        public int m_Jumping;
 
         public Vector3 Velocity
         {
@@ -100,7 +102,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             get { return m_IsGrounded; }
         }
 
-        public bool Jumping
+        public int Jumping
         {
             get { return m_Jumping; }
         }
@@ -130,7 +132,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         {
             RotateView();
 
-            if (CrossPlatformInputManager.GetButtonDown("Jump") && !m_Jump)
+            if (CrossPlatformInputManager.GetButtonDown("Jump") && !m_Jump && can_jump)
             {
                 m_Jump = true;
             }
@@ -162,15 +164,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 m_RigidBody.drag = 5f;
 
-                if (m_Jump)
-                {
-                    m_RigidBody.drag = 0f;
-                    m_RigidBody.velocity = new Vector3(m_RigidBody.velocity.x, 0f, m_RigidBody.velocity.z);
-                    m_RigidBody.AddForce(new Vector3(0f, movementSettings.JumpForce, 0f), ForceMode.Impulse);
-                    m_Jumping = true;
-                }
-
-                if (!m_Jumping && Mathf.Abs(input.x) < float.Epsilon && Mathf.Abs(input.y) < float.Epsilon && m_RigidBody.velocity.magnitude < 1f)
+                if (m_Jumping <= 0 && Mathf.Abs(input.x) < float.Epsilon && Mathf.Abs(input.y) < float.Epsilon && m_RigidBody.velocity.magnitude < 1f)
                 {
                     m_RigidBody.Sleep();
                 }
@@ -178,11 +172,20 @@ namespace UnityStandardAssets.Characters.FirstPerson
             else
             {
                 m_RigidBody.drag = 0f;
-                if (m_PreviouslyGrounded && !m_Jumping)
+                if (m_PreviouslyGrounded && m_Jumping <= 0)
                 {
                     StickToGroundHelper();
                 }
             }
+
+            if (m_Jump && m_Jumping < 2 && !m_wall_running)
+            {
+                m_RigidBody.drag = 0f;
+                m_RigidBody.velocity = new Vector3(m_RigidBody.velocity.x, 0f, m_RigidBody.velocity.z);
+                m_RigidBody.AddForce(new Vector3(0f, movementSettings.JumpForce, 0f), ForceMode.Impulse);
+                m_Jumping++;
+            }
+
             m_Jump = false;
         }
 
@@ -256,9 +259,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 m_IsGrounded = false;
                 m_GroundContactNormal = Vector3.up;
             }
-            if (!m_PreviouslyGrounded && m_IsGrounded && m_Jumping)
+            if (!m_PreviouslyGrounded && m_IsGrounded && m_Jumping > 0)
             {
-                m_Jumping = false;
+                m_Jumping = 0;
             }
         }
     }

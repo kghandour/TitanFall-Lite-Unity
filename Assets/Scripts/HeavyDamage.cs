@@ -51,13 +51,23 @@ public class HeavyDamage : MonoBehaviour
             {
                 if (Stats.titanFall <= 100)
                 {
-                    if (enemyType == "enemyPilot")
+                    if (health_and_call_titan_script.titanfallMeter <= 100)
                     {
-                        Stats.titanFall += 10;
+                        if (enemyType == "enemyPilot")
+                        {
+                            health_and_call_titan_script.titanfallMeter += 10;
+                        }
+                        else if (enemyType == "enemyTitan")
+                        {
+                            health_and_call_titan_script.titanfallMeter += 50;
+                        }
+                        print("Titanfall " + Stats.titanFall);
+
                     }
-                    else if (enemyType == "enemyTitan")
+
+                    if (health_and_call_titan_script.titanfallMeter > 100)
                     {
-                        Stats.titanFall += 50;
+                        health_and_call_titan_script.titanfallMeter = 100;
                     }
                     print("Titanfall " + Stats.titanFall);
 
