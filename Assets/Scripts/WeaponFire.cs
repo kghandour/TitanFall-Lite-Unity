@@ -1,13 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WeaponFire : MonoBehaviour
 {
     public GameObject bulletObject;
     public GameObject heavyBulletObject;
+    public Text ammo;
     Rigidbody projectile;
-    int ammoLeft;
+    int ammoLeft = WeaponManager.ammoCount;
     int bulletsFired;
 
     List<Bullet> bulletsList;
@@ -22,7 +24,6 @@ public class WeaponFire : MonoBehaviour
     {
         projectile = bulletObject.gameObject.GetComponent<Rigidbody>();
         bulletsList = new List<Bullet>();
-        ammoLeft = WeaponManager.ammoCount;
     }
 
     bool firing;
@@ -104,6 +105,7 @@ public class WeaponFire : MonoBehaviour
             {
                 ammoLeft = WeaponManager.ammoCount;
             }
+            
         }
         else // Logic for HEAVY Weapons
         {
@@ -123,7 +125,7 @@ public class WeaponFire : MonoBehaviour
                         cloneRigidBody.mass = 30;
                         cloneRigidBody.useGravity = true;
                     }
-                    heavyBullet = new Bullet(this.transform, cloneRigidBody, cloneObject);
+                    heavyBullet = new Bullet(transform, cloneRigidBody, cloneObject);
                     heavyBullet.rigidBody.velocity = this.transform.TransformDirection(Vector3.forward * 20);
                 }else if(heavyBullet.bullet.activeSelf == false)
                 {
@@ -158,6 +160,19 @@ public class WeaponFire : MonoBehaviour
         {
             WeaponManager.primaryEquipped = !WeaponManager.primaryEquipped;
             
+        }
+        if (WeaponManager.primaryEquipped)
+        {
+            if (bulletsList.Count < WeaponManager.ammoCount)
+                ammo.text = "Ammo: " + (WeaponManager.ammoCount - bulletsList.Count) + " / " + WeaponManager.ammoCount;
+            else
+                ammo.text = "Ammo: " + ammoLeft + " / " + WeaponManager.ammoCount;
+
+        }
+        else
+        {
+            ammo.text = "Ammo: " + "Infinity";
+
         }
     }
 

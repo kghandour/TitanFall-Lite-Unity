@@ -49,7 +49,7 @@ public class HeavyDamage : MonoBehaviour
             enemyStats.health -= WeaponManager.heavyDamage;
             if (enemyStats.health <= 0)
             {
-                if (Stats.titanFall <= 100)
+                if (health_and_call_titan_script.titanfallMeter <= 100)
                 {
                     if (health_and_call_titan_script.titanfallMeter <= 100)
                     {
@@ -61,7 +61,6 @@ public class HeavyDamage : MonoBehaviour
                         {
                             health_and_call_titan_script.titanfallMeter += 50;
                         }
-                        print("Titanfall " + Stats.titanFall);
 
                     }
 
@@ -69,7 +68,7 @@ public class HeavyDamage : MonoBehaviour
                     {
                         health_and_call_titan_script.titanfallMeter = 100;
                     }
-                    print("Titanfall " + Stats.titanFall);
+                    print("Titanfall " + health_and_call_titan_script.titanfallMeter);
 
                 }
                 enemy.SetActive(false);

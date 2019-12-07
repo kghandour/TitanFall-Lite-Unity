@@ -37,7 +37,6 @@ public class Damage : MonoBehaviour
                         health_and_call_titan_script.titanfallMeter += 50;
                         print("impact enemyTitan");
                     }
-                    print("Titanfall " + health_and_call_titan_script.titanfallMeter);
                     
                 }
 
@@ -45,6 +44,8 @@ public class Damage : MonoBehaviour
                 {
                     health_and_call_titan_script.titanfallMeter = 100;
                 }
+                print("Titanfall " + health_and_call_titan_script.titanfallMeter);
+
                 collision.gameObject.SetActive(false);
             }
 

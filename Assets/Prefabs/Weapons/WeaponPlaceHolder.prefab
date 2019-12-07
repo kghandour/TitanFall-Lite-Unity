@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6a27fe508c27433aa106b4d176e24c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletObject: {fileID: 4633619198612930323, guid: ea1af3df169c64c5bb97243e0449d1b1,
+  bulletObject: {fileID: 9202804710000451164, guid: 61c6b516f85eb469d9600a37c6d7fb37,
     type: 3}
-  heavyBulletObject: {fileID: 4382320629184688557, guid: 2a1bd0b3806bc41908ffcfdc7e028353,
+  heavyBulletObject: {fileID: 3463911426530072031, guid: 5acf53fa7900b43019b17a4bd53b1162,
     type: 3}

@@ -21,10 +21,10 @@ public class health_and_call_titan_script : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        titanfallMeter = 100;
+        titanfallMeter = 0;
         titanDeployed = false;
         Titan.SetActive(false);
-        health = 100;
+        if(health ==0 ) health = 100;
         titanFallAvailable.gameObject.SetActive(false);
         embarkAvailable.gameObject.SetActive(false);
         secondaryCamera.SetActive(false);
