@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27a9e5d7660894d5491e380130064f7b, type: 3}
   m_Name: Rocket Launcher
   m_EditorClassIdentifier: 
-  modelPrefab: {fileID: 0}
+  modelPrefab: {fileID: 6521185778016166358, guid: 52b04da499d8c41b3b3f7947b23e9bff,
+    type: 3}
   weaponName: Rocket
   range: 3
   damage: 150

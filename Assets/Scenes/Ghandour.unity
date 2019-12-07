@@ -366,6 +366,53 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+--- !u!1 &132245480
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 132245481}
+  - component: {fileID: 132245482}
+  m_Layer: 0
+  m_Name: WeaponPlaceHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &132245481
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132245480}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.22, y: -0.3, z: 0.18}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1201453661}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &132245482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132245480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6a27fe508c27433aa106b4d176e24c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletObject: {fileID: 4633619198612930323, guid: ea1af3df169c64c5bb97243e0449d1b1,
+    type: 3}
+  heavyBulletObject: {fileID: 4382320629184688557, guid: 2a1bd0b3806bc41908ffcfdc7e028353,
+    type: 3}
 --- !u!4 &206891851 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: 5e9e851c0e142814dac026a256ba2ac0,
@@ -391,7 +438,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &642878766
 Transform:
   m_ObjectHideFlags: 0
@@ -403,7 +450,7 @@ Transform:
   m_LocalPosition: {x: 0.22, y: -0.3, z: 0.23}
   m_LocalScale: {x: 0.1, y: 0.1, z: 1.5}
   m_Children: []
-  m_Father: {fileID: 206891851}
+  m_Father: {fileID: 1201453661}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &642878767
@@ -632,6 +679,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1201453661}
   - component: {fileID: 1201453662}
+  - component: {fileID: 1201453663}
   m_Layer: 0
   m_Name: Weapon
   m_TagString: Weapon
@@ -649,9 +697,11 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 642878766}
+  - {fileID: 132245481}
   m_Father: {fileID: 206891851}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1201453662
 MonoBehaviour:
@@ -665,11 +715,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 032278e4a5a88415789d70c210e3b0f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponPlaceHolder: {fileID: 132245480}
   AssaultRifle: {fileID: 11400000, guid: 351cced05ee144470a423f32f6a29d0b, type: 2}
   Shotgun: {fileID: 11400000, guid: 68ba8aa102d11493f81a6736e1833aeb, type: 2}
   Sniper: {fileID: 11400000, guid: 342670810bb53453ca1169ec24e0f3bc, type: 2}
   GrenadeLauncher: {fileID: 11400000, guid: c05a869ea87bd45eeb6156721e9dc0a8, type: 2}
   RocketLauncher: {fileID: 11400000, guid: 79f6482b26e3246cbbafd546e35de2d7, type: 2}
+--- !u!114 &1201453663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1201453660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13bfabf954d6048d6a2a04713e32a094, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1822041123
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -728,6 +791,10 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
+      propertyPath: near clip plane
+      value: 0.01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}

@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27a9e5d7660894d5491e380130064f7b, type: 3}
   m_Name: Grenade Launcher
   m_EditorClassIdentifier: 
-  modelPrefab: {fileID: 0}
+  modelPrefab: {fileID: 8695889608591506645, guid: 1ab47677a056141ebaa60d6feb728df6,
+    type: 3}
   weaponName: Grenade
   range: 4
   damage: 125

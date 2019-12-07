@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e65a477b61de4a86b2d2a5706b2ef78, type: 3}
   m_Name: Sniper
   m_EditorClassIdentifier: 
-  modelPrefab: {fileID: 0}
+  modelPrefab: {fileID: 7804555908897229288, guid: 8d472f583ec564bd6965e37769b7ef0e,
+    type: 3}
   weaponName: Sniper
   damageAmount: 85
   automatic: 0

@@ -157,6 +157,7 @@ public class WeaponFire : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Z))
         {
             WeaponManager.primaryEquipped = !WeaponManager.primaryEquipped;
+            
         }
     }
 

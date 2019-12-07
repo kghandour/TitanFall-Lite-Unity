@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e65a477b61de4a86b2d2a5706b2ef78, type: 3}
   m_Name: Assault
   m_EditorClassIdentifier: 
-  modelPrefab: {fileID: 0}
+  modelPrefab: {fileID: 100000, guid: cd8d56469cf64654eaa21e15c6ae7c18, type: 3}
   weaponName: Assault
   damageAmount: 10
   automatic: 1

@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Weapon
+  - enemyTitan
+  - enemyPilot
+  - Heavy
+  - Primary
   layers:
   - Default
   - TransparentFX
