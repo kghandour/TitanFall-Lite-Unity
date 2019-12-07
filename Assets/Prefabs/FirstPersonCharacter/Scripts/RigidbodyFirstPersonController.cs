@@ -82,6 +82,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         public MouseLook mouseLook = new MouseLook();
         public AdvancedSettings advancedSettings = new AdvancedSettings();
 
+
         public bool m_wall_running = false;
         public bool can_jump = true;
 

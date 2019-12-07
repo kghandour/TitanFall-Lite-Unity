@@ -12,6 +12,7 @@ public class health_and_call_titan_script : MonoBehaviour
     public int health;
     public GameObject Titan;
     public GameObject Pilot;
+    public GameObject TitanPlayer;
     public Text titanFallAvailable;
     public Text embarkAvailable;
     public float rangeToEmbark;
@@ -59,7 +60,7 @@ public class health_and_call_titan_script : MonoBehaviour
         Titan.SetActive(true); //show titan
         //change titan position to vertically above pilot
         Titan.transform.eulerAngles = new Vector3(0, 0, 0);
-        Vector3 newObjectLocation = new Vector3(Pilot.transform.position.x + 4, Pilot.transform.position.y + 10, Pilot.transform.position.z);
+        Vector3 newObjectLocation = new Vector3(Pilot.transform.position.x + 1.5f, Pilot.transform.position.y + 10, Pilot.transform.position.z);
         Titan.transform.position = newObjectLocation;
     }
 
@@ -72,11 +73,14 @@ public class health_and_call_titan_script : MonoBehaviour
     IEnumerator Embark()
     {
         secondaryCamera.SetActive(true);
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.5f);
         secondaryCamera.SetActive(false);
         Vector3 positionAfterEmbark = Titan.transform.position;
+        TitanPlayer.transform.position = positionAfterEmbark;
         Pilot.transform.position = positionAfterEmbark;
         Titan.SetActive(false);
+        Pilot.SetActive(false);
+        TitanPlayer.SetActive(true);
         Titan.transform.parent = Pilot.transform;
         titanDeployed = true;
         embarkAvailable.gameObject.SetActive(false);
