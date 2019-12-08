@@ -1339,6 +1339,7 @@ MonoBehaviour:
   health: 100
   Titan: {fileID: 8890710327848985114}
   Pilot: {fileID: 8816135356577588268}
+  TitanPlayer: {fileID: 0}
   titanFallAvailable: {fileID: 6691876509285417023}
   embarkAvailable: {fileID: 6691876508740987678}
   rangeToEmbark: 0
@@ -1370,12 +1371,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1488034036610460426}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.7600007, z: 0.17999983}
+  m_LocalRotation: {x: -1.110223e-16, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.050005272, z: 0.16199985}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 5477060757282051647}
-  m_RootOrder: 5
+  m_Father: {fileID: 8410313545603819214}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &1488034036608952622
 Camera:
@@ -5692,7 +5693,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6996559148875277429
 Transform:
   m_ObjectHideFlags: 0
@@ -8747,6 +8748,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1488034036610561836}
     m_Modifications:
+    - target: {fileID: -927199367670048503, guid: d125d32b54996a6429e52ea22b92a319,
+        type: 3}
+      propertyPath: m_Name
+      value: IMC Pilot BattleRifle
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: d125d32b54996a6429e52ea22b92a319,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: d125d32b54996a6429e52ea22b92a319,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8802,27 +8813,23 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: d125d32b54996a6429e52ea22b92a319,
-        type: 3}
-      propertyPath: m_Name
-      value: IMC Pilot BattleRifle
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: d125d32b54996a6429e52ea22b92a319,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d125d32b54996a6429e52ea22b92a319, type: 3}
+--- !u!1 &8816135356577588268 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: d125d32b54996a6429e52ea22b92a319,
+    type: 3}
+  m_PrefabInstance: {fileID: 682534435561602341}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5477060757282051647 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: d125d32b54996a6429e52ea22b92a319,
     type: 3}
   m_PrefabInstance: {fileID: 682534435561602341}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &8816135356577588268 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: d125d32b54996a6429e52ea22b92a319,
+--- !u!4 &8410313545603819214 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9065665716119788523, guid: d125d32b54996a6429e52ea22b92a319,
     type: 3}
   m_PrefabInstance: {fileID: 682534435561602341}
   m_PrefabAsset: {fileID: 0}
@@ -8945,18 +8952,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5007f76d232f41e3b18f36188e1ddf9, type: 3}
---- !u!114 &6691876508740987678 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4756547343312690279, guid: d5007f76d232f41e3b18f36188e1ddf9,
+--- !u!224 &6691876507586087272 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4756547344466574865, guid: d5007f76d232f41e3b18f36188e1ddf9,
     type: 3}
   m_PrefabInstance: {fileID: 2223921289602709369}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6691876509285417023 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4756547343850911558, guid: d5007f76d232f41e3b18f36188e1ddf9,
@@ -8969,12 +8970,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &6691876507586087272 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 4756547344466574865, guid: d5007f76d232f41e3b18f36188e1ddf9,
+--- !u!114 &6691876508740987678 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4756547343312690279, guid: d5007f76d232f41e3b18f36188e1ddf9,
     type: 3}
   m_PrefabInstance: {fileID: 2223921289602709369}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3140942664633198032
 PrefabInstance:
   m_ObjectHideFlags: 0
