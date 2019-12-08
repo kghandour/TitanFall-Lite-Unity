@@ -33,13 +33,25 @@ public class WallRun : MonoBehaviour
         {
             jump_count = 0;
 
+            fp_rigidbody.useGravity = true;
+
+            if (wall_right)
+            {
+                fp_controller.mouseLook.LookRotation(fp_controller.transform, fp_camera.transform, -30);
+            }
+            else if (wall_left)
+            {
+                fp_controller.mouseLook.LookRotation(fp_controller.transform, fp_camera.transform, 30);
+            }
+
             wall_right = false;
             wall_left = false;
+            fp_controller.m_wall_running = false;
         }
 
-        if (Input.GetKey(KeyCode.W) && !fp_controller.Grounded && jump_count <= 0 && fp_controller.m_Jumping > 0)
+        if (Input.GetKey(KeyCode.W) && !fp_controller.Grounded && jump_count <= 0 && fp_controller.m_Jumping > 0 && !wall_left && !wall_right)
         {
-            if(Physics.Raycast(transform.position, transform.right, out hitR, 1))
+            if(Physics.Raycast(transform.position, transform.TransformDirection(Vector3.right), out hitR, 1))
             {
                 wall_right = true;
                 jump_count += 1;
@@ -47,7 +59,7 @@ public class WallRun : MonoBehaviour
                 fp_rigidbody.velocity = new Vector3(fp_rigidbody.velocity.x, 0, fp_rigidbody.velocity.z);
                 fp_controller.mouseLook.LookRotation(fp_controller.transform, fp_camera.transform, 30);
                 fp_controller.m_wall_running = true;
-            } else if (Physics.Raycast(transform.position, -transform.right, out hitL, 1))
+            } else if (Physics.Raycast(transform.position, -transform.TransformDirection(Vector3.right), out hitL, 1))
             {
                 wall_left = true;
                 jump_count += 1;
@@ -58,8 +70,8 @@ public class WallRun : MonoBehaviour
             }
         } else if(
             jump_count >= 1
-            && (!Physics.Raycast(transform.position, transform.right, out hitR, 1)
-            && !Physics.Raycast(transform.position, -transform.right, out hitL, 1)
+            && (!Physics.Raycast(transform.position, transform.TransformDirection(Vector3.right), out hitR, 1)
+            && !Physics.Raycast(transform.position, -transform.TransformDirection(Vector3.right), out hitL, 1)
             || (!Input.GetKey(KeyCode.W)))
         )
         {
@@ -77,23 +89,6 @@ public class WallRun : MonoBehaviour
             wall_right = false;
             wall_left = false;
             fp_controller.m_wall_running = false;
-        }
-    }
-
-    IEnumerator afterRun()
-    {
-        Debug.Log(runTime);
-        yield return new WaitForSeconds(runTime);
-
-        Debug.Log("after run");
-        fp_rigidbody.useGravity = true;
-
-        if(wall_right)
-        {
-            fp_controller.mouseLook.LookRotation(fp_controller.transform, fp_camera.transform, -15);
-        } else if(wall_left)
-        {
-            fp_controller.mouseLook.LookRotation(fp_controller.transform, fp_camera.transform, 15);
         }
     }
 }
