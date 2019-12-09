@@ -22,8 +22,13 @@ public class EnemyTitanScript : MonoBehaviour
 
     private GameObject player;
     public float allowedRange;
-    public bool attackTrigger;
 
+    //public PrimaryWeapons gun;
+    public AudioSource source;
+    public AudioClip gunSound;
+    public AudioClip hitSound;
+    public AudioClip deathSound;
+    public AudioClip walkingSound;
 
     public ParticleSystem flare;
 
@@ -63,6 +68,7 @@ public class EnemyTitanScript : MonoBehaviour
     {
         yield return new WaitForSeconds(0.20f);
         flare.enableEmission = true;
+
     }
 
     // Update is called once per frame
@@ -79,6 +85,7 @@ public class EnemyTitanScript : MonoBehaviour
             InvokeRepeating("FiringRoutine", 3f, 3f);
         }
 
+
         if (anim.GetBool("isFollowing"))
         {
             enemy.destination = (player.transform.position);
@@ -86,6 +93,7 @@ public class EnemyTitanScript : MonoBehaviour
             //anim.SetBool("Hit", false);
             transform.gameObject.GetComponent<NavMeshAgent>().speed = 3;
             flare.enableEmission = false;
+
         }
 
         if (anim.GetBool("isFiring"))
@@ -93,10 +101,12 @@ public class EnemyTitanScript : MonoBehaviour
             enemy.destination = transform.position;
             print(anim.GetCurrentAnimatorStateInfo(0).IsName("Firing"));
             StartCoroutine("delay");
+
         }
 
         if (anim.GetBool("isWalking"))
         {
+
             if (enemy.desiredVelocity.magnitude < 0.1f && !enemy.pathPending)
             {
                 target = potentialTargets[Random.Range(0, potentialTargets.Length)];
@@ -106,10 +116,16 @@ public class EnemyTitanScript : MonoBehaviour
 
         if (anim.GetBool("isIdle"))
         {
+            source.Stop();
             enemy.destination = (transform.position);
         }
 
         if (anim.GetBool("Hit"))
+        {
+            enemy.destination = (transform.position);
+        }
+
+        if (anim.GetBool("isDead"))
         {
             enemy.destination = (transform.position);
         }

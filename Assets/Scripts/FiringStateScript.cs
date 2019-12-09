@@ -8,8 +8,10 @@ public class FiringStateScript : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        //animator.SetBool("isFollowing", true);
-        //animator.SetBool("isFiring", false);
+        EnemyTitanScript enemy = animator.gameObject.GetComponent<EnemyTitanScript>();
+        enemy.source.clip = enemy.gunSound;
+        enemy.source.loop = false;
+        enemy.source.Play();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -24,6 +26,8 @@ public class FiringStateScript : StateMachineBehaviour
     {
         animator.SetBool("isFollowing", true);
         animator.SetBool("isFiring", false);
+        EnemyTitanScript enemy = animator.gameObject.GetComponent<EnemyTitanScript>();
+        enemy.source.Stop();
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

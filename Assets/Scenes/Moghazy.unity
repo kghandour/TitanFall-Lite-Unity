@@ -568,7 +568,7 @@ PrefabInstance:
     - target: {fileID: 6764992740080001288, guid: 0abd9276a7cfe42088ff190186afd31a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4
+      value: 10.34
       objectReference: {fileID: 0}
     - target: {fileID: 6764992740080001288, guid: 0abd9276a7cfe42088ff190186afd31a,
         type: 3}
@@ -4697,7 +4697,7 @@ PrefabInstance:
     - target: {fileID: 2611368370594606504, guid: b99e838a3b26e1b44bb2240f7451a7fa,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1325791577740517307, guid: b99e838a3b26e1b44bb2240f7451a7fa,
         type: 3}
@@ -5519,7 +5519,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 3166231813375590551}
   allowedRange: 5
-  attackTrigger: 0
+  source: {fileID: 0}
+  gunSound: {fileID: 0}
+  hitSound: {fileID: 0}
+  deathSound: {fileID: 0}
+  walkingSound: {fileID: 0}
   flare: {fileID: 926694553}
 --- !u!114 &8296172668701990914
 MonoBehaviour:

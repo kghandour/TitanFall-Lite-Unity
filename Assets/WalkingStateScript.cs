@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DeadStateScript : StateMachineBehaviour
+public class WalkingStateScript : StateMachineBehaviour
 {
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         EnemyTitanScript enemy = animator.gameObject.GetComponent<EnemyTitanScript>();
-        enemy.source.clip = enemy.deathSound;
-        enemy.source.loop = false;
+        enemy.source.clip = enemy.walkingSound;
+        enemy.source.loop = true;
         enemy.source.Play();
     }
 
@@ -24,14 +24,13 @@ public class DeadStateScript : StateMachineBehaviour
     {
         EnemyTitanScript enemy = animator.gameObject.GetComponent<EnemyTitanScript>();
         enemy.source.Stop();
-        Destroy(animator.gameObject);
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
-    //override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    // Implement code that processes and affects root motion
-    //}
+    override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        // Implement code that processes and affects root motion
+    }
 
     // OnStateIK is called right after Animator.OnAnimatorIK()
     //override public void OnStateIK(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

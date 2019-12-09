@@ -5,10 +5,13 @@ using UnityEngine;
 public class HitStateScript : StateMachineBehaviour
 {
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
-    //override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    
-    //}
+    override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        EnemyTitanScript enemy = animator.gameObject.GetComponent<EnemyTitanScript>();
+        enemy.source.clip = enemy.hitSound;
+        enemy.source.loop = false;
+        enemy.source.Play();
+    }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     //override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -20,6 +23,8 @@ public class HitStateScript : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.SetBool("Hit", false);
+        EnemyTitanScript enemy = animator.gameObject.GetComponent<EnemyTitanScript>();
+        enemy.source.Stop();
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

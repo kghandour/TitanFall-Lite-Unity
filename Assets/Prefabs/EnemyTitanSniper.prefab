@@ -3437,6 +3437,7 @@ GameObject:
   - component: {fileID: 5533732368340572740}
   - component: {fileID: 656428614574185703}
   - component: {fileID: -8561734210794500938}
+  - component: {fileID: 4719031050443806895}
   m_Layer: 0
   m_Name: EnemyTitanSniper
   m_TagString: enemyTitan
@@ -3519,7 +3520,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 1448644349746677036}
   allowedRange: 5
-  attackTrigger: 0
+  source: {fileID: 4719031050443806895}
+  gunSound: {fileID: 8300000, guid: 16af47fec2abfb2469c57cc2c8ffe463, type: 3}
+  hitSound: {fileID: 8300000, guid: 5abd0524392e02f45860b6844f978277, type: 3}
+  deathSound: {fileID: 8300000, guid: 2617adf70ef99d34da47a57bda4e6fd4, type: 3}
+  walkingSound: {fileID: 8300000, guid: 5a9383dda6cabc047b7a297602e93eb4, type: 3}
   flare: {fileID: 5552739554694640173}
 --- !u!195 &5533732368340575675
 NavMeshAgent:
@@ -3587,6 +3592,102 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 32
   m_CollisionDetection: 0
+--- !u!82 &4719031050443806895
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5533732368340572741}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &5552739555865625102
 GameObject:
   m_ObjectHideFlags: 0
@@ -6091,15 +6192,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4560e456c4ec0d3418fffd368dd1e7ff, type: 3}
---- !u!4 &5552739554680485741 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 400000, guid: 4560e456c4ec0d3418fffd368dd1e7ff,
-    type: 3}
-  m_PrefabInstance: {fileID: 5552739554680352237}
-  m_PrefabAsset: {fileID: 0}
 --- !u!198 &5552739554694640173 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 19800000, guid: 4560e456c4ec0d3418fffd368dd1e7ff,
+    type: 3}
+  m_PrefabInstance: {fileID: 5552739554680352237}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5552739554680485741 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400000, guid: 4560e456c4ec0d3418fffd368dd1e7ff,
     type: 3}
   m_PrefabInstance: {fileID: 5552739554680352237}
   m_PrefabAsset: {fileID: 0}
