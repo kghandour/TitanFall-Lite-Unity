@@ -19,9 +19,8 @@ public class EnemyTitanScript : MonoBehaviour
 
 
     public Animator anim;
-    private Animation anima;
 
-    public GameObject player;
+    private GameObject player;
     public float allowedRange;
     public bool attackTrigger;
 
@@ -34,28 +33,10 @@ public class EnemyTitanScript : MonoBehaviour
 
 
 
-
-    //private IEnumerator WaitShwia(float shwia)
-    //{
-    //    //do
-    //    //{
-    //    //    yield return null;
-    //    //} while (animation.isPlaying);
-
-    //    yield return new WaitForSeconds(shwia);
-    //}
-
     void FiringRoutine()
     {
         anim.SetBool("isFollowing", false);
         anim.SetBool("isFiring", true);
-        //anim.SetBool("isFollowing", true);
-        //anim.SetBool("isFiring", false);
-        //anima.Play();
-        ////WaitShwia(2.06f);
-        //anim.SetBool("isFollowing", true);
-        //anim.SetBool("isFiring", false);
-        //anim.SetBool("isFiring", !anim.GetBool("isFiring"));
     }
 
     void WalkingRoutine()
@@ -71,7 +52,7 @@ public class EnemyTitanScript : MonoBehaviour
     void Start()
     {
         enemy = GetComponent<NavMeshAgent>();
-        anima = GetComponent<Animation>();
+        player = GameObject.FindGameObjectWithTag("Player");
         potentialTargets = FindObjectsOfType<TargetScript>();
         target = potentialTargets[Random.Range(0, potentialTargets.Length)];
         InvokeRepeating("WalkingRoutine", 0, 5f);
@@ -80,8 +61,7 @@ public class EnemyTitanScript : MonoBehaviour
 
     public IEnumerator delay()
     {
-        yield return new WaitForSeconds(0.15f);
-
+        yield return new WaitForSeconds(0.20f);
         flare.enableEmission = true;
     }
 
@@ -99,20 +79,17 @@ public class EnemyTitanScript : MonoBehaviour
             InvokeRepeating("FiringRoutine", 3f, 3f);
         }
 
-        if (anim.GetBool("isFollowing") && !anim.GetBool("isFiring"))
+        if (anim.GetBool("isFollowing"))
         {
             enemy.destination = (player.transform.position);
-
+            anim.SetBool("fireNow", true);
             flare.enableEmission = false;
-            //transform.position += enemy.desiredVelocity * Time.deltaTime;
         }
 
         if (anim.GetBool("isFiring"))
         {
             enemy.destination = transform.position;
             StartCoroutine("delay");
-            Debug.Log(flare.isPlaying);
-            //gun.transform.LookAt(transform.InverseTransformDirection(Vector3.forward)); 
         }
 
         if (anim.GetBool("isWalking"))
@@ -122,7 +99,6 @@ public class EnemyTitanScript : MonoBehaviour
                 target = potentialTargets[Random.Range(0, potentialTargets.Length)];
                 enemy.destination = (target.transform.position);
             }
-            //transform.position += enemy.desiredVelocity * Time.deltaTime;
         }
 
         if (anim.GetBool("isIdle"))

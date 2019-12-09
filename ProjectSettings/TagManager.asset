@@ -9,6 +9,7 @@ TagManager:
   - enemyPilot
   - Heavy
   - Primary
+  - LookAt
   layers:
   - Default
   - TransparentFX

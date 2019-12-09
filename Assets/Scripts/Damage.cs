@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Damage : MonoBehaviour
 {
-    EnemyStats enemyStats;
+    //EnemyStats enemyStats;
+    private HealthScript enemyHealth;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,11 +20,11 @@ public class Damage : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        enemyStats = collision.gameObject.GetComponent<EnemyStats>();
-        if (enemyStats != null)
+        enemyHealth = collision.gameObject.GetComponent<HealthScript>();
+        if (enemyHealth != null)
         {
-            enemyStats.health -= WeaponManager.damageAmount;
-            if (enemyStats.health <= 0)
+            enemyHealth.currentHealth -= WeaponManager.damageAmount;
+            if (enemyHealth.currentHealth <= 0)
             {
                 if (health_and_call_titan_script.titanfallMeter <= 100)
                 {
@@ -46,7 +47,7 @@ public class Damage : MonoBehaviour
                 }
                 print("Titanfall " + health_and_call_titan_script.titanfallMeter);
 
-                collision.gameObject.SetActive(false);
+                Destroy(collision.gameObject);
             }
 
         }

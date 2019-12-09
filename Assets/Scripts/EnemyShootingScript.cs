@@ -4,22 +4,20 @@ using UnityEngine;
 
 public class EnemyShootingScript : MonoBehaviour
 {
-    public float damage = 10f;
-    public float range = 100f;
 
 
     public GameObject shotStart;
+    public PrimaryWeapons gun;
 
 
     private Animator anim;
     private Transform player;
 
 
+
     void Start()
     {
         anim = GetComponent<Animator>();
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-        //Debug.Log("7aa7aa");
     }
 
 
@@ -34,17 +32,32 @@ public class EnemyShootingScript : MonoBehaviour
     void Shoot()
     {
         RaycastHit hit;
-        //Debug.DrawRay(shotStart.transform.position, shotStart.transform.forward, Color.red, 30.0f, true);
-        //Debug.Log("7aa7aa");
-        if (Physics.Raycast(shotStart.transform.position, shotStart.transform.forward, out hit, range))
+        if (Physics.Raycast(shotStart.transform.position, shotStart.transform.forward, out hit, gun.range))
         {
-            if (hit.transform.name == "FPSController")
-                Debug.Log(hit.transform.name);
+            if (hit.transform.name == "Pilot" && anim.GetBool("fireNow"))
+            {
+                
+                health_and_call_titan_script playerHealth = hit.transform.gameObject.GetComponent<health_and_call_titan_script>();
+                if(playerHealth != null)
+                {
+                    playerHealth.health -= gun.damageAmount;
+                    anim.SetBool("fireNow", false);
+                }
+                
+
+            }
+            else
+            {
+            }
             //else
             //{
             //    Debug.Log("DIDN'T HIT");
             //}
         }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
     }
 
 

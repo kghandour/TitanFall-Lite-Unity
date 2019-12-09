@@ -3,7 +3,72 @@ guid: dbba1d3a1d3041b4fb7ec1515c00bf4c
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Null_CylinderMat
+    second: {fileID: 2100000, guid: d712e143631e10e4d86e83e2e25c8da6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PlaneMat
+    second: {fileID: 2100000, guid: 7289389567321af4f9cb1ad5524134ab, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rifle_barrel_barrel1Mat
+    second: {fileID: 2100000, guid: 39424b95be08d9c4dbe8c354ccbd53f5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rifle_bolt1_bolt2_boltMat
+    second: {fileID: 2100000, guid: 480139f6b1dc634429eea127d598ec65, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rifle_bolt1_bolt_handle_bolt3Mat
+    second: {fileID: 2100000, guid: 480139f6b1dc634429eea127d598ec65, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rifle_butt_butt1Mat
+    second: {fileID: 2100000, guid: 480139f6b1dc634429eea127d598ec65, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rifle_chamber_chamber1Mat
+    second: {fileID: 2100000, guid: 480139f6b1dc634429eea127d598ec65, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rifle_magazine_magazine1Mat
+    second: {fileID: 2100000, guid: 480139f6b1dc634429eea127d598ec65, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rifle_rail_rail1Mat
+    second: {fileID: 2100000, guid: 480139f6b1dc634429eea127d598ec65, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rifle_stock_magazine_1Mat
+    second: {fileID: 2100000, guid: 480139f6b1dc634429eea127d598ec65, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rifle_stock_stock1_stock2Mat
+    second: {fileID: 2100000, guid: 480139f6b1dc634429eea127d598ec65, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rifle_trigger_guard1_trigger_guardMat
+    second: {fileID: 2100000, guid: 480139f6b1dc634429eea127d598ec65, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rifle_trigger_trigger1Mat
+    second: {fileID: 2100000, guid: 480139f6b1dc634429eea127d598ec65, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

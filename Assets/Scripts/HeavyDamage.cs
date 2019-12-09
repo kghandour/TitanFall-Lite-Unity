@@ -26,28 +26,28 @@ public class HeavyDamage : MonoBehaviour
         {
             if (Vector3.Distance(transform.position, enemyPilot.transform.position) <= WeaponManager.heavyRange)
             {
-                EnemyStats enemyStats = enemyPilot.GetComponent<EnemyStats>();
-                calculateDamage(enemyPilot, enemyStats, "enemyPilot");
+                HealthScript enemyHealth = enemyPilot.GetComponent<HealthScript>();
+                calculateDamage(enemyPilot, enemyHealth, "enemyPilot");
             }
         }
         foreach (GameObject enemyTitan in enemyTitans)
         {
             if (Vector3.Distance(transform.position, enemyTitan.transform.position) <= WeaponManager.heavyRange)
             {
-                EnemyStats enemyStats = enemyTitan.GetComponent<EnemyStats>();
-                calculateDamage(enemyTitan, enemyStats, "enemyTitan");
+                HealthScript enemyHealth = enemyTitan.GetComponent<HealthScript>();
+                calculateDamage(enemyTitan, enemyHealth, "enemyTitan");
             }
         }
            gameObject.SetActive(false);
         }
     }
 
-    void calculateDamage(GameObject enemy, EnemyStats enemyStats, string enemyType)
+    void calculateDamage(GameObject enemy, HealthScript enemyHealth, string enemyType)
     {
-        if (enemyStats != null)
+        if (enemyHealth != null)
         {
-            enemyStats.health -= WeaponManager.heavyDamage;
-            if (enemyStats.health <= 0)
+            enemyHealth.currentHealth -= WeaponManager.heavyDamage;
+            if (enemyHealth.currentHealth <= 0)
             {
                 if (health_and_call_titan_script.titanfallMeter <= 100)
                 {
@@ -71,7 +71,7 @@ public class HeavyDamage : MonoBehaviour
                     print("Titanfall " + health_and_call_titan_script.titanfallMeter);
 
                 }
-                enemy.SetActive(false);
+                Destroy(enemy.gameObject);
             }
 
         }
