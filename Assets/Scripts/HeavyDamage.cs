@@ -71,7 +71,7 @@ public class HeavyDamage : MonoBehaviour
                     print("Titanfall " + health_and_call_titan_script.titanfallMeter);
 
                 }
-                Destroy(enemy.gameObject);
+                enemy.GetComponent<Animator>().SetBool("isDead", true);
             }
 
         }

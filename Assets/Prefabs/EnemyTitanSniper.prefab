@@ -2543,7 +2543,7 @@ Transform:
   m_GameObject: {fileID: 4480701347590789357}
   m_LocalRotation: {x: 0.4955098, y: 0.6277686, z: -0.59739345, w: -0.05914147}
   m_LocalPosition: {x: 0.147, y: -0.016, z: 0.104}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children:
   - {fileID: 5100350588580636252}
   - {fileID: 7175793520428192203}
@@ -2896,7 +2896,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 347317ccf8d5ce644bac9c53ce3c2dc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerEyes: {fileID: 0}
 --- !u!1 &4605539007366904265
 GameObject:
   m_ObjectHideFlags: 0
@@ -3437,8 +3436,9 @@ GameObject:
   - component: {fileID: 5533732368340575675}
   - component: {fileID: 5533732368340572740}
   - component: {fileID: 656428614574185703}
+  - component: {fileID: -8561734210794500938}
   m_Layer: 0
-  m_Name: Ronin sketch (2)
+  m_Name: EnemyTitanSniper
   m_TagString: enemyTitan
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3518,10 +3518,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 1448644349746677036}
-  player: {fileID: 0}
   allowedRange: 5
   attackTrigger: 0
-  gun: {fileID: 4605539005898702641}
   flare: {fileID: 5552739554694640173}
 --- !u!195 &5533732368340575675
 NavMeshAgent:
@@ -3573,6 +3571,22 @@ CapsuleCollider:
   m_Height: 3
   m_Direction: 1
   m_Center: {x: 0, y: 1.5, z: 0}
+--- !u!54 &-8561734210794500938
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5533732368340572741}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 32
+  m_CollisionDetection: 0
 --- !u!1 &5552739555865625102
 GameObject:
   m_ObjectHideFlags: 0
@@ -5924,12 +5938,6 @@ PrefabInstance:
 --- !u!4 &4605539005898662673 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: cd8d56469cf64654eaa21e15c6ae7c18,
-    type: 3}
-  m_PrefabInstance: {fileID: 4605539005898799505}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &4605539005898702641 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100000, guid: cd8d56469cf64654eaa21e15c6ae7c18,
     type: 3}
   m_PrefabInstance: {fileID: 4605539005898799505}
   m_PrefabAsset: {fileID: 0}

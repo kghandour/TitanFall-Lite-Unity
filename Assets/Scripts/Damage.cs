@@ -6,6 +6,7 @@ public class Damage : MonoBehaviour
 {
     //EnemyStats enemyStats;
     private HealthScript enemyHealth;
+    private Animator enemyAnim;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,9 +22,17 @@ public class Damage : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         enemyHealth = collision.gameObject.GetComponent<HealthScript>();
+        enemyAnim = collision.gameObject.GetComponent<Animator>();
         if (enemyHealth != null)
         {
             enemyHealth.currentHealth -= WeaponManager.damageAmount;
+
+            if (enemyAnim != null)
+            {
+                enemyAnim.SetBool("Hit", true);
+                print(enemyAnim.GetBool("Hit"));
+            }
+
             if (enemyHealth.currentHealth <= 0)
             {
                 if (health_and_call_titan_script.titanfallMeter <= 100)
@@ -47,10 +56,14 @@ public class Damage : MonoBehaviour
                 }
                 print("Titanfall " + health_and_call_titan_script.titanfallMeter);
 
-                Destroy(collision.gameObject);
+                enemyAnim.SetBool("isDead", true);
+                //Destroy(collision.gameObject);
             }
 
         }
+
+        
+
         if (!collision.gameObject.CompareTag("Player"))
         {
             gameObject.SetActive(false);

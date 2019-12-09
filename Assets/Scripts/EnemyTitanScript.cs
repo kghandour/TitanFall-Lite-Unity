@@ -24,7 +24,6 @@ public class EnemyTitanScript : MonoBehaviour
     public float allowedRange;
     public bool attackTrigger;
 
-    public GameObject gun;
 
     public ParticleSystem flare;
 
@@ -53,6 +52,7 @@ public class EnemyTitanScript : MonoBehaviour
     {
         enemy = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player");
+        print(player.gameObject);
         potentialTargets = FindObjectsOfType<TargetScript>();
         target = potentialTargets[Random.Range(0, potentialTargets.Length)];
         InvokeRepeating("WalkingRoutine", 0, 5f);
@@ -83,12 +83,15 @@ public class EnemyTitanScript : MonoBehaviour
         {
             enemy.destination = (player.transform.position);
             anim.SetBool("fireNow", true);
+            //anim.SetBool("Hit", false);
+            transform.gameObject.GetComponent<NavMeshAgent>().speed = 3;
             flare.enableEmission = false;
         }
 
         if (anim.GetBool("isFiring"))
         {
             enemy.destination = transform.position;
+            print(anim.GetCurrentAnimatorStateInfo(0).IsName("Firing"));
             StartCoroutine("delay");
         }
 
@@ -104,7 +107,12 @@ public class EnemyTitanScript : MonoBehaviour
         if (anim.GetBool("isIdle"))
         {
             enemy.destination = (transform.position);
-        }     
+        }
+
+        if (anim.GetBool("Hit"))
+        {
+            enemy.destination = (transform.position);
+        }
     }
 
     
