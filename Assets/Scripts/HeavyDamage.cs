@@ -47,30 +47,25 @@ public class HeavyDamage : MonoBehaviour
         if (enemyHealth != null)
         {
             enemyHealth.currentHealth -= WeaponManager.heavyDamage;
-            if (enemyHealth.currentHealth <= 0)
+            if (enemyHealth.currentHealth <= 0 && !enemy.GetComponent<Animator>().GetBool("isDead"))
             {
                 if (health_and_call_titan_script.titanfallMeter <= 100)
                 {
-                    if (health_and_call_titan_script.titanfallMeter <= 100)
+                    if (enemyType == "enemyPilot")
                     {
-                        if (enemyType == "enemyPilot")
-                        {
-                            health_and_call_titan_script.titanfallMeter += 10;
-                        }
-                        else if (enemyType == "enemyTitan")
-                        {
-                            health_and_call_titan_script.titanfallMeter += 50;
-                        }
-
+                        health_and_call_titan_script.titanfallMeter += 10;
                     }
-
-                    if (health_and_call_titan_script.titanfallMeter > 100)
+                    else if (enemyType == "enemyTitan")
                     {
-                        health_and_call_titan_script.titanfallMeter = 100;
+                        health_and_call_titan_script.titanfallMeter += 50;
                     }
-                    print("Titanfall " + health_and_call_titan_script.titanfallMeter);
-
                 }
+
+                if (health_and_call_titan_script.titanfallMeter > 100)
+                {
+                    health_and_call_titan_script.titanfallMeter = 100;
+                }
+                print("Titanfall " + health_and_call_titan_script.titanfallMeter);
                 enemy.GetComponent<Animator>().SetBool("isDead", true);
             }
 

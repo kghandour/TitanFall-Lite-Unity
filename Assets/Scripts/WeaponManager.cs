@@ -19,6 +19,8 @@ public class WeaponManager : MonoBehaviour
     public static bool primaryEquipped = true;
     private bool prevPrimaryEquipped = true;
 
+
+    public static string weaponName;
     public static int damageAmount;
     public static bool automatic;
     public static int firingRate;
@@ -29,6 +31,8 @@ public class WeaponManager : MonoBehaviour
 
     public static int heavyRange;
     public static int heavyDamage;
+    public static string heavyWeaponName;
+
 
     // Start is called before the first frame update
     void Start()
@@ -63,10 +67,13 @@ public class WeaponManager : MonoBehaviour
         range = currentPrimary.range;
         primaryObject = currentPrimary.modelPrefab;
         heavyObject = currentHeavy.modelPrefab;
+        weaponName = currentPrimary.name;
 
         heavyRange = currentHeavy.range;
         heavyDamage = currentHeavy.damage;
-        
+        heavyWeaponName = currentHeavy.name;
+
+
         if (primaryEquipped)
         {
             if (currentWeaponObject != null)

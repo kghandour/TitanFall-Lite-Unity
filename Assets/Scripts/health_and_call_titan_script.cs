@@ -20,10 +20,14 @@ public class health_and_call_titan_script : MonoBehaviour
     public float rangeToEmbark;
     public GameObject secondaryCamera; //used as an effect for dimming the screen at embark time
 
+    public Slider healthBar;
+    public Slider titanFallMeterBar;
+
+
     // Start is called before the first frame update
     void Start()
     {
-        titanfallMeter = 100;
+        titanfallMeter = 0;
         titanDeployed = false;
         Titan.SetActive(false);
         if(health ==0 ) health = 100;
@@ -35,6 +39,11 @@ public class health_and_call_titan_script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        healthBar.value = health;
+        titanFallMeterBar.value = titanfallMeter;
+
+        
         if (!titanDeployed && titanfallMeter == MAX_TITANFALLMETER ) //Ready for titanfall
         {
             titanFallAvailable.gameObject.SetActive(true); //set text to indicate a player can perform a titanfall

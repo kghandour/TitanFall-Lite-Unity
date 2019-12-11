@@ -33,7 +33,7 @@ public class Damage : MonoBehaviour
                 print(enemyAnim.GetBool("Hit"));
             }
 
-            if (enemyHealth.currentHealth <= 0)
+            if (enemyHealth.currentHealth <= 0 && !enemyAnim.GetBool("isDead"))
             {
                 if (health_and_call_titan_script.titanfallMeter <= 100)
                 {

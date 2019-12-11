@@ -8,6 +8,7 @@ public class WeaponFire : MonoBehaviour
     public GameObject bulletObject;
     public GameObject heavyBulletObject;
     public Text ammo;
+    public Text weaponName;
     Rigidbody projectile;
     int ammoLeft = WeaponManager.ammoCount;
     int bulletsFired;
@@ -172,12 +173,15 @@ public class WeaponFire : MonoBehaviour
             else
                 ammo.text = "Ammo: " + ammoLeft + " / " + WeaponManager.ammoCount;
 
+            weaponName.text = "Weapon: " + WeaponManager.weaponName;
         }
         else
         {
             ammo.text = "Ammo: " + "Infinity";
+            weaponName.text = "Weapon: " + WeaponManager.heavyWeaponName;
 
         }
+        
     }
 
     
