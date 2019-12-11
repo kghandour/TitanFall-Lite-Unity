@@ -28,6 +28,7 @@ public class CrouchingScript : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.C))
         {
             Trigger();
+            print("Crouch "+isCrouching);
         }
 
         if(isCrouching && Input.GetKeyDown(fp_controller.movementSettings.RunKey))

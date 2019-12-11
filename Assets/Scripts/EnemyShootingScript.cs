@@ -33,7 +33,8 @@ public class EnemyShootingScript : MonoBehaviour
     {
         RaycastHit hit;
         if (Physics.Raycast(shotStart.transform.position, shotStart.transform.forward, out hit, gun.range))
-        {
+        {   
+
             if (hit.transform.name == "Pilot" && anim.GetBool("fireNow"))
             {
                 
@@ -46,8 +47,9 @@ public class EnemyShootingScript : MonoBehaviour
                 
 
             }
-            else
+             if(hit.transform.tag == "playerTitanShield")
             {
+                hit.transform.gameObject.GetComponent<sheild>().bulletsTotalDamage += gun.damageAmount;
             }
             //else
             //{

@@ -152,7 +152,7 @@ RectTransform:
   - {fileID: 1100052156}
   - {fileID: 1600511474}
   m_Father: {fileID: 447642516}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -227,7 +227,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: weapon1
+  m_Text: Assault Rifle
 --- !u!222 &73949052
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -381,7 +381,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: HeavyWeapon2
+  m_Text: Grenade Launcher
 --- !u!222 &111725746
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -483,6 +483,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2032035039}
+        m_MethodName: SetPrimary
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Assault
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &183121034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -556,7 +567,7 @@ RectTransform:
   - {fileID: 1981633192}
   - {fileID: 1043538693}
   m_Father: {fileID: 447642516}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -721,7 +732,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 444408869}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2032035039}
+        m_MethodName: SetHeavy
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: RPG
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &444408869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -980,6 +1002,7 @@ RectTransform:
   m_Children:
   - {fileID: 771905023}
   - {fileID: 447133607}
+  - {fileID: 2032035040}
   - {fileID: 354246600}
   - {fileID: 37395797}
   - {fileID: 2144444227}
@@ -1265,6 +1288,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2032035039}
+        m_MethodName: SetPrimary
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Shotgun
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &533389311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1369,7 +1403,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: HeavyWeapon1
+  m_Text: RPG
 --- !u!222 &566187970
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1446,7 +1480,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: weapon3
+  m_Text: Sniper
 --- !u!222 &576218830
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3133,7 +3167,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: weapon2
+  m_Text: Shotgun
 --- !u!222 &1356210088
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3373,7 +3407,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1410916153}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2032035039}
+        m_MethodName: SetPrimary
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Sniper
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1410916153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4206,7 +4251,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1728325470}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2032035039}
+        m_MethodName: SetHeavy
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Grenade Launcher
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1728325470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4551,6 +4607,36 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1903749537
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1903749538}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1903749538
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1903749537}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2032035040}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1981633191
 GameObject:
   m_ObjectHideFlags: 0
@@ -4691,6 +4777,98 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1981633191}
   m_CullTransparentMesh: 0
+--- !u!1001 &2032035038
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 447642516}
+    m_Modifications:
+    - target: {fileID: 8335122402766010835, guid: a027448de1ac8451287e9fd882226883,
+        type: 3}
+      propertyPath: m_Name
+      value: WeaponManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8335122402766010834, guid: a027448de1ac8451287e9fd882226883,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8335122402766010834, guid: a027448de1ac8451287e9fd882226883,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8335122402766010834, guid: a027448de1ac8451287e9fd882226883,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8335122402766010834, guid: a027448de1ac8451287e9fd882226883,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8335122402766010834, guid: a027448de1ac8451287e9fd882226883,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8335122402766010834, guid: a027448de1ac8451287e9fd882226883,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8335122402766010834, guid: a027448de1ac8451287e9fd882226883,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8335122402766010834, guid: a027448de1ac8451287e9fd882226883,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8335122402766010834, guid: a027448de1ac8451287e9fd882226883,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8335122402766010834, guid: a027448de1ac8451287e9fd882226883,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8335122402766010834, guid: a027448de1ac8451287e9fd882226883,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8335122402766010833, guid: a027448de1ac8451287e9fd882226883,
+        type: 3}
+      propertyPath: weaponPlaceHolder
+      value: 
+      objectReference: {fileID: 1903749537}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a027448de1ac8451287e9fd882226883, type: 3}
+--- !u!114 &2032035039 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8335122402766010833, guid: a027448de1ac8451287e9fd882226883,
+    type: 3}
+  m_PrefabInstance: {fileID: 2032035038}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 032278e4a5a88415789d70c210e3b0f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &2032035040 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8335122402766010834, guid: a027448de1ac8451287e9fd882226883,
+    type: 3}
+  m_PrefabInstance: {fileID: 2032035038}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2078746971
 GameObject:
   m_ObjectHideFlags: 0
@@ -4853,7 +5031,7 @@ RectTransform:
   - {fileID: 688114939}
   - {fileID: 717602973}
   m_Father: {fileID: 447642516}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

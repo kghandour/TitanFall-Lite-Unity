@@ -67,7 +67,9 @@ public class WeaponFire : MonoBehaviour
                     bulletObject.SetActive(true);
                     Rigidbody cloneRigidBody;
 
-                    cloneObject = Instantiate(bulletObject, this.transform.position, bulletObject.transform.rotation);
+                    cloneObject = Instantiate(bulletObject, this.transform.position, this.transform.rotation);
+                    cloneObject.transform.Translate(Vector3.forward * 1.2f);
+
                     cloneObject.tag = "Primary";
                     cloneRigidBody = cloneObject.gameObject.GetComponent<Rigidbody>();
                     Bullet b = new Bullet(this.transform, cloneRigidBody, cloneObject);
@@ -86,9 +88,11 @@ public class WeaponFire : MonoBehaviour
                             if (bullet.bullet.activeSelf == false)
                             {
                                 bullet.startPos = this.transform;
-                                bullet.rigidBody.velocity = this.transform.TransformDirection(Vector3.forward * bulletSpeed);
                                 bullet.bullet.transform.position = this.transform.position;
                                 bullet.bullet.transform.rotation = this.transform.rotation;
+                                bullet.bullet.transform.Translate(Vector3.forward * 1.2f);
+                                bullet.rigidBody.velocity = this.transform.TransformDirection(Vector3.forward * bulletSpeed);
+                                
                                 bullet.bullet.SetActive(true);
                                 ammoLeft -= 1;
                                 bulletsFired += 1;
@@ -116,8 +120,8 @@ public class WeaponFire : MonoBehaviour
                     print(WeaponManager.currentHeavy.weaponName);
                     GameObject cloneObject;
                     Rigidbody cloneRigidBody;
-
-                    cloneObject = Instantiate(heavyBulletObject, this.transform.position, heavyBulletObject.transform.rotation);
+                    cloneObject = Instantiate(heavyBulletObject, transform.position, transform.rotation);
+                    cloneObject.transform.Translate(Vector3.forward * 1.2f);
                     cloneObject.tag = "Heavy";
                     cloneRigidBody = cloneObject.gameObject.GetComponent<Rigidbody>();
                     if (WeaponManager.currentHeavy.weaponName == "Grenade")

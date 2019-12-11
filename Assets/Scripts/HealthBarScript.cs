@@ -10,8 +10,6 @@ public class HealthBarScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerEyes = GameObject.FindGameObjectWithTag("LookAt").GetComponent<Camera>();
-        print("I look at " + GameObject.FindGameObjectWithTag("LookAt").name);
     }
 
     // Update is called once per frame
@@ -19,6 +17,7 @@ public class HealthBarScript : MonoBehaviour
     {
         //Camera playerEyes = Camera.main;
 
+        playerEyes = GameObject.FindGameObjectWithTag("LookAt").GetComponent<Camera>();
         transform.LookAt(transform.position + playerEyes.transform.rotation * Vector3.back, playerEyes.transform.rotation * Vector3.up);
 
     }
