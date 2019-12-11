@@ -74,6 +74,9 @@ public class EnemyTitanScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        player = GameObject.FindGameObjectWithTag("Player");
+
         if (Vector3.Distance(transform.position, player.transform.position) < allowedRange && !anim.GetBool("isFollowing") && isFollowingFlag)
         {
             anim.SetBool("isFollowing", true);
