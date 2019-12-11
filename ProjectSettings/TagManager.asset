@@ -10,6 +10,8 @@ TagManager:
   - Heavy
   - Primary
   - LookAt
+  - playerTitan
+  - playerTitanShield
   layers:
   - Default
   - TransparentFX

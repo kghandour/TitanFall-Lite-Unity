@@ -9,6 +9,7 @@ public class sheild : MonoBehaviour
     {
         if(collisionInfo.collider.tag == "Bullet")
         {
+            Debug.Log("hit");
             countBullets = countBullets + 1;
             Destroy(collisionInfo.collider.gameObject);
         }

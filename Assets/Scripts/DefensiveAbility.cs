@@ -15,6 +15,7 @@ public class DefensiveAbility : MonoBehaviour
     }
     IEnumerator waitFiveSeconds(){
         yield return new WaitForSeconds(5f);
+        
         sheild.gameObject.SetActive(false);
         //anim.SetBool("onDefClick", false);
     }

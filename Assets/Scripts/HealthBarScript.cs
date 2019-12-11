@@ -11,6 +11,7 @@ public class HealthBarScript : MonoBehaviour
     void Start()
     {
         playerEyes = GameObject.FindGameObjectWithTag("LookAt").GetComponent<Camera>();
+        print("I look at " + GameObject.FindGameObjectWithTag("LookAt").name);
     }
 
     // Update is called once per frame
