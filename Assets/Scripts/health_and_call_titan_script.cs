@@ -51,6 +51,15 @@ public class health_and_call_titan_script : MonoBehaviour
                 StartCoroutine(Embark());
             }
         }
+        else if (isTitanClose() && Titan2.gameObject.activeInHierarchy)
+        {
+
+            embarkAvailable.gameObject.SetActive(true);
+            if (Input.GetKeyDown("e"))
+            {
+                StartCoroutine(Embark());
+            }
+        }
         else
             embarkAvailable.gameObject.SetActive(false);
     }
