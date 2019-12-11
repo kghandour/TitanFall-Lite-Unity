@@ -2,6 +2,8 @@ using System;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
+using Random = UnityEngine.Random;
+
 namespace UnityStandardAssets.Characters.FirstPerson
 {
     [RequireComponent(typeof (Rigidbody))]
@@ -16,7 +18,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             public float StrafeSpeed = 4.0f;    // Speed when walking sideways
             public float RunMultiplier = 2.0f;   // Speed when sprinting
 	        public KeyCode RunKey = KeyCode.LeftShift;
-            public float JumpForce = 30f;
+            public float JumpForce = 60f;
             public AnimationCurve SlopeCurveModifier = new AnimationCurve(new Keyframe(-90.0f, 1.0f), new Keyframe(0.0f, 1.0f), new Keyframe(90.0f, 0.0f));
             public bool isCrouching = false;
             [HideInInspector] public float CurrentTargetSpeed = 8f;
@@ -128,6 +130,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_RigidBody = GetComponent<Rigidbody>();
             m_Capsule = GetComponent<CapsuleCollider>();
             mouseLook.Init (transform, cam.transform);
+
+            m_AudioSource = GetComponent<AudioSource>();
         }
 
 
@@ -190,6 +194,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
 
             m_Jump = false;
+
+            ProgressStepCycle();
         }
 
 
@@ -266,6 +272,48 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 m_Jumping = 0;
             }
+        }
+
+        private float m_StepCycle = 0;
+        private float m_NextStep = 5;
+
+        private void ProgressStepCycle()
+        {
+            var m_Input_x = CrossPlatformInputManager.GetAxis("Horizontal");
+            var m_Input_y = CrossPlatformInputManager.GetAxis("Vertical");
+
+            if (this.Velocity.sqrMagnitude > 0 && (m_Input_x != 0 || m_Input_y != 0))
+            {
+                m_StepCycle += (this.Velocity.sqrMagnitude) * Time.fixedDeltaTime;
+            }
+
+            if (!(m_StepCycle > m_NextStep))
+            {
+                return;
+            }
+
+            m_StepCycle = 0;
+
+            PlayFootStepAudio();
+        }
+
+        public AudioClip[] m_FootstepSounds;
+        private AudioSource m_AudioSource;
+
+        private void PlayFootStepAudio()
+        {
+            if (!m_IsGrounded)
+            {
+                return;
+            }
+            // pick & play a random footstep sound from the array,
+            // excluding sound at index 0
+            int n = Random.Range(1, m_FootstepSounds.Length);
+            m_AudioSource.clip = m_FootstepSounds[n];
+            m_AudioSource.PlayOneShot(m_AudioSource.clip);
+            // move picked sound to index 0 so it's not picked next time
+            m_FootstepSounds[n] = m_FootstepSounds[0];
+            m_FootstepSounds[0] = m_AudioSource.clip;
         }
     }
 }
