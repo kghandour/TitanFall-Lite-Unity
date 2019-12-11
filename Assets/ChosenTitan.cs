@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ChosenTitan : MonoBehaviour
 {
-    public static int selectedTitan=1;
+    public static int selectedTitan=0   ;
     // Start is called before the first frame update
     void Start()
     {
