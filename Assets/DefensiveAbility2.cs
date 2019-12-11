@@ -9,7 +9,7 @@ public class DefensiveAbility2 : MonoBehaviour
     private bool canActiveSheild = true;
     // Start is called before the first frame update
     IEnumerator waitTwoSeconds(){
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(0f);
         thermalSheild.gameObject.SetActive(true);
         anim.SetBool("onDefClick", false);
     }

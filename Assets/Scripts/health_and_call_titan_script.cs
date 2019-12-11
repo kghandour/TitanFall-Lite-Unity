@@ -11,8 +11,10 @@ public class health_and_call_titan_script : MonoBehaviour
     public bool titanDeployed;
     public int health;
     public GameObject Titan;
+    public GameObject Titan2;
     public GameObject Pilot;
     public GameObject TitanPlayer;
+    public GameObject TitanPlayer2;
     public Text titanFallAvailable;
     public Text embarkAvailable;
     public float rangeToEmbark;
@@ -21,7 +23,7 @@ public class health_and_call_titan_script : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        titanfallMeter = 0;
+        titanfallMeter = 100;
         titanDeployed = false;
         Titan.SetActive(false);
         if(health ==0 ) health = 100;
@@ -57,16 +59,29 @@ public class health_and_call_titan_script : MonoBehaviour
     {
         titanFallAvailable.gameObject.SetActive(false); //deactivate text
         titanfallMeter = 0;
-        Titan.SetActive(true); //show titan
+        if(ChosenTitan.selectedTitan==0){
+            Titan.SetActive(true); //show titan
         //change titan position to vertically above pilot
-        Titan.transform.eulerAngles = new Vector3(0, 0, 0);
-        Vector3 newObjectLocation = new Vector3(Pilot.transform.position.x + 1.5f, Pilot.transform.position.y + 10, Pilot.transform.position.z);
-        Titan.transform.position = newObjectLocation;
+            Titan.transform.eulerAngles = new Vector3(0, 0, 0);
+            Vector3 newObjectLocation = new Vector3(Pilot.transform.position.x + 1.5f, Pilot.transform.position.y + 10, Pilot.transform.position.z);
+            Titan.transform.position = newObjectLocation;
+        }else if(ChosenTitan.selectedTitan==1){
+            Titan2.SetActive(true); //show titan
+        //change titan position to vertically above pilot
+            Titan2.transform.eulerAngles = new Vector3(0, 0, 0);
+            Vector3 newObjectLocation = new Vector3(Pilot.transform.position.x + 1.5f, Pilot.transform.position.y + 10, Pilot.transform.position.z);
+            Titan2.transform.position = newObjectLocation;
+        }
+        
     }
 
     public bool isTitanClose()
     {
-        float dist = Vector3.Distance(Titan.transform.position, transform.position);
+        float dist = 1000;
+        if(ChosenTitan.selectedTitan==0)
+            dist = Vector3.Distance(Titan.transform.position, transform.position);
+        else if(ChosenTitan.selectedTitan==1)
+            dist = Vector3.Distance(Titan2.transform.position, transform.position);
         return dist < rangeToEmbark;  
     }
 
@@ -75,13 +90,25 @@ public class health_and_call_titan_script : MonoBehaviour
         secondaryCamera.SetActive(true);
         yield return new WaitForSeconds(0.5f);
         secondaryCamera.SetActive(false);
-        Vector3 positionAfterEmbark = Titan.transform.position;
-        TitanPlayer.transform.position = positionAfterEmbark;
+        Vector3 positionAfterEmbark = new Vector3(0,0,0);
+        if(ChosenTitan.selectedTitan==0){
+            positionAfterEmbark = Titan.transform.position;
+            TitanPlayer.transform.position = positionAfterEmbark;
+        }else if(ChosenTitan.selectedTitan==1){
+            positionAfterEmbark = Titan2.transform.position;
+            TitanPlayer2.transform.position = positionAfterEmbark;
+        }
         Pilot.transform.position = positionAfterEmbark;
         Titan.SetActive(false);
+        Titan2.SetActive(false);
         Pilot.SetActive(false);
-        TitanPlayer.SetActive(true);
-        Titan.transform.parent = Pilot.transform;
+        if(ChosenTitan.selectedTitan==0){
+            TitanPlayer.SetActive(true);
+            Titan.transform.parent = Pilot.transform;
+        }else if(ChosenTitan.selectedTitan==1){
+            TitanPlayer2.SetActive(true);
+            Titan2.transform.parent = Pilot.transform;
+        }
         titanDeployed = true;
         embarkAvailable.gameObject.SetActive(false);
     }

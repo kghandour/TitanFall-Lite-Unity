@@ -5,11 +5,12 @@ using UnityEngine;
 public class CoreAbility2 : MonoBehaviour
 {
     private Animator anim;
-    public GameObject Flame;
+    public ParticleSystem Flame;
     private int canActiveFlame = 100;
 
     IEnumerator waitThreeSeconds(){
         yield return new WaitForSeconds(3f);
+        Flame.enableEmission = false;
         anim.SetBool("onCoreClick", false);
     }
     // Start is called before the first frame update
@@ -26,6 +27,7 @@ public class CoreAbility2 : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.B))
             {
             anim.SetBool("onCoreClick", true);
+            Flame.enableEmission = true;
             StartCoroutine(waitThreeSeconds());
             canActiveFlame = 0;
             }
