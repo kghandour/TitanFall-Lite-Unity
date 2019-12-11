@@ -84,4 +84,29 @@ public class WeaponManager : MonoBehaviour
             currentWeaponObject = Instantiate(heavyObject, this.weaponPlaceHolder.transform);
         }
     }
+
+    public void SetPrimary(string Primary)
+    {
+        if(Primary == "Assault")
+        {
+            currentPrimary = AssaultRifle;
+        }else if(Primary == "Shotgun")
+        {
+            currentPrimary = Shotgun;
+        }else if(Primary == "Sniper")
+        {
+            currentPrimary = Sniper;
+        }
+    }
+
+    public void SetHeavy(string Heavy)
+    {
+        if(Heavy == "RPG")
+        {
+            currentHeavy = RocketLauncher;
+        }else if(Heavy == "Grenade Launcher")
+        {
+            currentHeavy = GrenadeLauncher;
+        }
+    }
 }
