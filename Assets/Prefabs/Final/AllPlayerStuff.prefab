@@ -8884,6 +8884,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472bdb20175a8a94f979eaa9f3e207a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pauseCanvas: {fileID: 0}
 --- !u!1 &3574494461452642881
 GameObject:
   m_ObjectHideFlags: 0
@@ -26915,6 +26916,21 @@ PrefabInstance:
       propertyPath: titanFallMeterBar
       value: 
       objectReference: {fileID: 1314801850}
+    - target: {fileID: 825866597499305360, guid: e33c51819041d4bbfbcab4b5a43b7a6c,
+        type: 3}
+      propertyPath: pilotHUD
+      value: 
+      objectReference: {fileID: 8227707644047260494}
+    - target: {fileID: 825866597499305360, guid: e33c51819041d4bbfbcab4b5a43b7a6c,
+        type: 3}
+      propertyPath: source
+      value: 
+      objectReference: {fileID: 8560924694994554830}
+    - target: {fileID: 825866597499305360, guid: e33c51819041d4bbfbcab4b5a43b7a6c,
+        type: 3}
+      propertyPath: enemyDiesSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 4065ebd3e7e61c04782757bf97ec7e21, type: 3}
     - target: {fileID: 825866597499305366, guid: e33c51819041d4bbfbcab4b5a43b7a6c,
         type: 3}
       propertyPath: m_FootstepSounds.Array.size

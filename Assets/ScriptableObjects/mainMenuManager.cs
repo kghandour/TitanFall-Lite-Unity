@@ -9,7 +9,7 @@ public class mainMenuManager : MonoBehaviour
 
     private void Start()
     {
-
+        Screen.lockCursor = false;
     }
 
     public void PlayGame()

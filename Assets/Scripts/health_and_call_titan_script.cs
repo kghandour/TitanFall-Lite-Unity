@@ -25,6 +25,15 @@ public class health_and_call_titan_script : MonoBehaviour
     public Slider healthBar;
     public Slider titanFallMeterBar;
 
+    public Canvas gameOverCanvas;
+
+    public GameObject pilotHUD;
+
+    public Camera uselessCamera;
+
+    public AudioSource source;
+    public AudioClip enemyDiesSound;
+
 
     //private void OnEnable()
     //{
@@ -63,7 +72,15 @@ public class health_and_call_titan_script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if(health <= 0)
+        {
+            pilotHUD.SetActive(false);
+            uselessCamera.gameObject.SetActive(true);
+            gameOverCanvas.gameObject.SetActive(true);
+            source.clip = enemyDiesSound;
+            source.loop = true;
+            source.Play();
+        }
 
         healthBar.value = health;
         titanFallMeterBar.value = titanfallMeter;
