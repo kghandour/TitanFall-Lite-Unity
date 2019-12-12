@@ -33,23 +33,24 @@ public class EnemyShootingScript : MonoBehaviour
     {
         RaycastHit hit;
         if (Physics.Raycast(shotStart.transform.position, shotStart.transform.forward, out hit, gun.range))
-        {   
-
-            if (hit.transform.name == "Pilot" && anim.GetBool("fireNow"))
+        {
+            if (hit.transform.tag == "Player" && anim.GetBool("fireNow"))
             {
-                
-                health_and_call_titan_script playerHealth = hit.transform.gameObject.GetComponent<health_and_call_titan_script>();
-                if(playerHealth != null)
+                if (DefensiveAbility.shieldActive)
                 {
-                    playerHealth.health -= gun.damageAmount;
-                    anim.SetBool("fireNow", false);
+                    DefensiveAbility.returnedDamage += gun.damageAmount;
+                }
+                else
+                {
+                    health_and_call_titan_script playerHealth = hit.transform.gameObject.GetComponent<health_and_call_titan_script>();
+                    if (playerHealth != null)
+                    {
+                        playerHealth.health -= gun.damageAmount;
+                        anim.SetBool("fireNow", false);
+                    }
                 }
                 
 
-            }
-             if(hit.transform.tag == "playerTitanShield")
-            {
-                hit.transform.gameObject.GetComponent<sheild>().bulletsTotalDamage += gun.damageAmount;
             }
             //else
             //{

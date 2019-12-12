@@ -8,11 +8,6 @@ public class DefensiveAbility2 : MonoBehaviour
     public GameObject thermalSheild;
     private bool canActiveSheild = true;
     // Start is called before the first frame update
-    IEnumerator waitTwoSeconds(){
-        yield return new WaitForSeconds(0f);
-        thermalSheild.gameObject.SetActive(true);
-        anim.SetBool("onDefClick", false);
-    }
     IEnumerator waitEightSeconds(){
         yield return new WaitForSeconds(8f);
         
@@ -35,13 +30,12 @@ public class DefensiveAbility2 : MonoBehaviour
     {
         if(canActiveSheild)
         {
-            if (Input.GetKeyDown(KeyCode.J))
+            if (Input.GetKeyDown(KeyCode.F))
             {
-            anim.SetBool("onDefClick", true);
-            StartCoroutine(waitTwoSeconds());
-            StartCoroutine(waitEightSeconds());
-            canActiveSheild = false;
-            StartCoroutine(waitFifteenSeconds());
+                thermalSheild.gameObject.SetActive(true);
+                StartCoroutine(waitEightSeconds());
+                canActiveSheild = false;
+                StartCoroutine(waitFifteenSeconds());
             }
         }
     }

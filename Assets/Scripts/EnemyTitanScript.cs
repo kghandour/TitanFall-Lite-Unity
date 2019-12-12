@@ -91,7 +91,15 @@ public class EnemyTitanScript : MonoBehaviour
 
         if (anim.GetBool("isFollowing"))
         {
-            enemy.destination = (player.transform.position);
+            if (Vector3.Distance(transform.position, player.transform.position) >= 4)
+            {
+                enemy.destination = (player.transform.position);
+                print(Vector3.Distance(transform.position, player.transform.position));
+            }
+            else
+            {
+                enemy.destination = transform.position;
+            }
             anim.SetBool("fireNow", true);
             //anim.SetBool("Hit", false);
             transform.gameObject.GetComponent<NavMeshAgent>().speed = 3;

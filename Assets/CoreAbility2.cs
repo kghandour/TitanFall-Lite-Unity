@@ -5,13 +5,15 @@ using UnityEngine;
 public class CoreAbility2 : MonoBehaviour
 {
     private Animator anim;
-    public ParticleSystem Flame;
+    //public ParticleSystem Flame;
+    public GameObject Flame;
+
     private int canActiveFlame = 100;
 
     IEnumerator waitThreeSeconds(){
-        yield return new WaitForSeconds(3f);
-        Flame.enableEmission = false;
-        anim.SetBool("onCoreClick", false);
+        yield return new WaitForSeconds(2f);
+        Flame.gameObject.SetActive(false);
+        //Flame.enableEmission = false;
     }
     // Start is called before the first frame update
     void Start()
@@ -24,11 +26,11 @@ public class CoreAbility2 : MonoBehaviour
     {
         if(canActiveFlame == 100)
         {
-            if (Input.GetKeyDown(KeyCode.B))
+            if (Input.GetKeyDown(KeyCode.V))
             {
-            anim.SetBool("onCoreClick", true);
-            Flame.enableEmission = true;
-            StartCoroutine(waitThreeSeconds());
+                Flame.gameObject.SetActive(true);
+                //Flame.enableEmission = true;
+                StartCoroutine(waitThreeSeconds());
             canActiveFlame = 0;
             }
         }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Laser : MonoBehaviour
+public class FlameDmg : MonoBehaviour
 {
     private LineRenderer lr;
     // Start is called before the first frame update
@@ -16,12 +16,12 @@ public class Laser : MonoBehaviour
     {
         lr.SetPosition(0, transform.position);
         RaycastHit hit;
-        if(Physics.Raycast(transform.position,transform.forward, out hit,100))
+        if (Physics.Raycast(transform.position, transform.forward, out hit, 15))
         {
-            if(hit.collider)
+            if (hit.collider)
             {
                 print("hitting target " + hit.transform.tag);
-                if(hit.transform.tag == "enemyTitan")
+                if (hit.transform.tag == "enemyTitan")
                 {
                     calculateDamage(hit.collider.gameObject, hit.collider.gameObject.GetComponent<HealthScript>(), "enemyTitan");
                 }
@@ -29,12 +29,15 @@ public class Laser : MonoBehaviour
                 {
                     calculateDamage(hit.collider.gameObject, hit.collider.gameObject.GetComponent<HealthScript>(), "enemyPilot");
                 }
-                lr.SetPosition(1,hit.point);
+                lr.SetPosition(1, hit.point);
             }
+            lr.SetPosition(1, hit.point);
         }
-        else 
+        else
         {
-            lr.SetPosition(1, transform.forward*5000);
+            lr.SetPosition(1, transform.forward*20);
+            //lr.SetPosition(0, transform.position);
+
         }
     }
 
@@ -42,7 +45,7 @@ public class Laser : MonoBehaviour
     {
         if (enemyHealth != null)
         {
-            enemyHealth.currentHealth -= 500;
+            enemyHealth.currentHealth -= 100;
             if (enemyHealth.currentHealth <= 0 && !enemy.GetComponent<Animator>().GetBool("isDead"))
             {
                 if (health_and_call_titan_script.titanfallMeter <= 100)
