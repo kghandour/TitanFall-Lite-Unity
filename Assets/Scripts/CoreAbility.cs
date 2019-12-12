@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class CoreAbility : MonoBehaviour
 {
     private Animator anim;
     public GameObject Laser;
-    private int canActiveLaser = 100;
+    public static int canActiveLaser = 0;
+    public Slider coreAbilityMeterBar;
     // Start is called before the first frame update
 
     IEnumerator waitThreeSeconds(){
@@ -35,5 +38,6 @@ public class CoreAbility : MonoBehaviour
             canActiveLaser = 0;
             }
         }
+        coreAbilityMeterBar.value = canActiveLaser;
     }
 }

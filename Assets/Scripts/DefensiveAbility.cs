@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class DefensiveAbility : MonoBehaviour
 {
@@ -11,6 +13,9 @@ public class DefensiveAbility : MonoBehaviour
     public static bool shieldActive = false;
     public GameObject grenadeObject;
 
+    public Text defensiveAbilityCoolDownTimer;
+    private int coolDownCounter = 15;
+
     IEnumerator waitTwoSeconds(){
         yield return new WaitForSeconds(1.5f);
         sheild.gameObject.SetActive(true);
@@ -20,26 +25,39 @@ public class DefensiveAbility : MonoBehaviour
     IEnumerator waitFiveSeconds(){
         yield return new WaitForSeconds(5f);
         sheild.gameObject.SetActive(false);
-        //Insantiate
-        GameObject cloneObject;
-        cloneObject = Instantiate(grenadeObject, this.transform.position, this.transform.rotation);
-        cloneObject.transform.Translate(Vector3.forward * 1.1f);
-        cloneObject.transform.Translate(Vector3.up * 2f);
+        if(returnedDamage != 0)
+        {
+            //Insantiate
+            GameObject cloneObject;
+            cloneObject = Instantiate(grenadeObject, this.transform.position, this.transform.rotation);
+            cloneObject.transform.Translate(Vector3.forward * 1.1f);
+            cloneObject.transform.Translate(Vector3.up * 2f);
 
 
-        cloneObject.tag = "Heavy";
-        cloneObject.gameObject.GetComponent<Rigidbody>().velocity = this.transform.TransformDirection(Vector3.forward * 30);
-        cloneObject.gameObject.GetComponent<def1Dmg>().returnDamage = returnedDamage;
-        print("Total damage is " + cloneObject.gameObject.GetComponent<def1Dmg>().returnDamage);
+            cloneObject.tag = "Heavy";
+            cloneObject.gameObject.GetComponent<Rigidbody>().velocity = this.transform.TransformDirection(Vector3.forward * 30);
+            cloneObject.gameObject.GetComponent<def1Dmg>().returnDamage = returnedDamage;
+            print("Total damage is " + cloneObject.gameObject.GetComponent<def1Dmg>().returnDamage);
+        }
+       
 
         shieldActive = false;
         returnedDamage = 0;
-
+        canActiveSheild = false;
+        StartCoroutine(waitFifteenSeconds());
         //anim.SetBool("onDefClick", false);
     }
     IEnumerator waitFifteenSeconds(){
         yield return new WaitForSeconds(15f);
         canActiveSheild = true;
+    }
+
+    void IncreaseCoolDown()
+    {
+        if(coolDownCounter < 15 && !shieldActive)
+        {
+            coolDownCounter += 1;
+        }
     }
 
    
@@ -48,6 +66,7 @@ public class DefensiveAbility : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
+        InvokeRepeating("IncreaseCoolDown", 0, 1f);
     }
 
     // Update is called once per frame
@@ -57,13 +76,16 @@ public class DefensiveAbility : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.F))
             {
-            sheild.gameObject.SetActive(true);
-            shieldActive = true;
-            StartCoroutine(waitFiveSeconds());
-            canActiveSheild = false;
-            StartCoroutine(waitFifteenSeconds());
+                sheild.gameObject.SetActive(true);
+                shieldActive = true;
+                coolDownCounter = 0;
+                StartCoroutine(waitFiveSeconds());
+                
             }
         }
-        
+
+        defensiveAbilityCoolDownTimer.text = "Defensive ability CD timer: " + coolDownCounter;
+
+
     }
 }

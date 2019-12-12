@@ -94,11 +94,16 @@ public class EnemyTitanScript : MonoBehaviour
             if (Vector3.Distance(transform.position, player.transform.position) >= 4)
             {
                 enemy.destination = (player.transform.position);
-                print(Vector3.Distance(transform.position, player.transform.position));
+                //print(Vector3.Distance(transform.position, player.transform.position));
             }
             else
             {
                 enemy.destination = transform.position;
+                var lookPos = player.transform.position - transform.position;
+                lookPos.y = 0;
+                var rotation = Quaternion.LookRotation(lookPos);
+                transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 5);
+                //enemy.gameObject.transform.LookAt(player.transform);
             }
             anim.SetBool("fireNow", true);
             //anim.SetBool("Hit", false);
@@ -110,7 +115,7 @@ public class EnemyTitanScript : MonoBehaviour
         if (anim.GetBool("isFiring"))
         {
             enemy.destination = transform.position;
-            print(anim.GetCurrentAnimatorStateInfo(0).IsName("Firing"));
+            //print(anim.GetCurrentAnimatorStateInfo(0).IsName("Firing"));
             StartCoroutine("delay");
 
         }

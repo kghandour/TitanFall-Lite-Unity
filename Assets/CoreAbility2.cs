@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class CoreAbility2 : MonoBehaviour
 {
@@ -8,7 +10,8 @@ public class CoreAbility2 : MonoBehaviour
     //public ParticleSystem Flame;
     public GameObject Flame;
 
-    private int canActiveFlame = 100;
+    public static int canActiveFlame = 0;
+    public Slider coreAbilityMeterBar;
 
     IEnumerator waitThreeSeconds(){
         yield return new WaitForSeconds(2f);
@@ -34,5 +37,7 @@ public class CoreAbility2 : MonoBehaviour
             canActiveFlame = 0;
             }
         }
+
+        coreAbilityMeterBar.value = canActiveFlame;
     }
 }

@@ -48,23 +48,26 @@ public class FlameDmg : MonoBehaviour
             enemyHealth.currentHealth -= 100;
             if (enemyHealth.currentHealth <= 0 && !enemy.GetComponent<Animator>().GetBool("isDead"))
             {
-                if (health_and_call_titan_script.titanfallMeter <= 100)
-                {
-                    if (enemyType == "enemyPilot")
-                    {
-                        health_and_call_titan_script.titanfallMeter += 10;
-                    }
-                    else if (enemyType == "enemyTitan")
-                    {
-                        health_and_call_titan_script.titanfallMeter += 50;
-                    }
-                }
+                //if (CoreAbility2.canActiveFlame <= 100)
+                //{
+                //    if (enemy.gameObject.CompareTag("enemyPilot"))
+                //    {
+                //        CoreAbility2.canActiveFlame += 10;
+                //        print("Impact pilot");
+                //    }
+                //    else if (enemy.gameObject.CompareTag("enemyTitan"))
+                //    {
+                //        CoreAbility2.canActiveFlame += 50;
+                //        print("impact enemyTitan");
+                //    }
 
-                if (health_and_call_titan_script.titanfallMeter > 100)
-                {
-                    health_and_call_titan_script.titanfallMeter = 100;
-                }
-                print("Titanfall " + health_and_call_titan_script.titanfallMeter);
+                //}
+
+                //if (CoreAbility2.canActiveFlame > 100)
+                //{
+                //    CoreAbility2.canActiveFlame = 100;
+                //}
+                //print("Titanfall " + health_and_call_titan_script.titanfallMeter);
                 enemy.GetComponent<Animator>().SetBool("isDead", true);
             }
 

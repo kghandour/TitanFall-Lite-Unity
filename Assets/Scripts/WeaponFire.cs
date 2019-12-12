@@ -8,6 +8,7 @@ public class WeaponFire : MonoBehaviour
     public GameObject bulletObject;
     public GameObject heavyBulletObject;
     public Text ammo;
+    public Text reload;
     public Text weaponName;
     Rigidbody projectile;
     int ammoLeft = WeaponManager.ammoCount;
@@ -31,6 +32,17 @@ public class WeaponFire : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(ammoLeft <= 0)
+        {
+            reload.gameObject.SetActive(true);
+            //print(ammoLeft);
+        }
+        else
+        {
+            reload.gameObject.SetActive(false);
+            //print(ammoLeft);
+        }
+
         if (WeaponManager.primaryEquipped)
         {
             if (WeaponManager.automatic)
@@ -101,6 +113,8 @@ public class WeaponFire : MonoBehaviour
                                 break;
                             }
                         }
+
+                        
                     }
                 }
             }

@@ -20,25 +20,50 @@ public class health_and_call_titan_script : MonoBehaviour
     public float rangeToEmbark;
     public GameObject secondaryCamera; //used as an effect for dimming the screen at embark time
 
+    public int timeAfterLastDamage = 0;
+
     public Slider healthBar;
     public Slider titanFallMeterBar;
+
+
+    //private void OnEnable()
+    //{
+    //    print("HElooooo");
+    //}
+    void healthIncrementerFunc()
+    {
+        timeAfterLastDamage += 1;
+        //print(timeAfterLastDamage);
+        if (health < 100 && timeAfterLastDamage >= 3)
+        { // if health < 100...
+            health += 5; // increase health and wait the specified time
+            //yield return new WaitForSeconds(1);
+        }
+        //else
+        //{ // if health >= 100, just yield 
+        //    yield return null;
+        //}
+    }
 
 
     // Start is called before the first frame update
     void Start()
     {
-        titanfallMeter = 100;
+        titanfallMeter = 0;
         titanDeployed = false;
         Titan.SetActive(false);
         if(health ==0 ) health = 100;
         titanFallAvailable.gameObject.SetActive(false);
         embarkAvailable.gameObject.SetActive(false);
         secondaryCamera.SetActive(false);
+        InvokeRepeating("healthIncrementerFunc", 0, 1f);
+
     }
 
     // Update is called once per frame
     void Update()
     {
+
 
         healthBar.value = health;
         titanFallMeterBar.value = titanfallMeter;
@@ -122,10 +147,10 @@ public class health_and_call_titan_script : MonoBehaviour
         Pilot.SetActive(false);
         if(ChosenTitan.selectedTitan==0){
             TitanPlayer.SetActive(true);
-            Titan.transform.parent = Pilot.transform;
+            //Titan.transform.parent = Pilot.transform;
         }else if(ChosenTitan.selectedTitan==1){
             TitanPlayer2.SetActive(true);
-            Titan2.transform.parent = Pilot.transform;
+            //Titan2.transform.parent = Pilot.transform;
         }
         titanDeployed = true;
         embarkAvailable.gameObject.SetActive(false);
@@ -135,7 +160,7 @@ public class health_and_call_titan_script : MonoBehaviour
     {
         while (true)
         { // loops forever...
-            if (health < 100)
+            if (health < 100 && timeAfterLastDamage >= 3)
             { // if health < 100...
                 health += 5; // increase health and wait the specified time
                 yield return new WaitForSeconds(1);
@@ -146,6 +171,8 @@ public class health_and_call_titan_script : MonoBehaviour
             }
         }
     }
+
+    
 
 
 }

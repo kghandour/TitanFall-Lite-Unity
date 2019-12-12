@@ -4074,7 +4074,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Titan2
+  m_Text: 'Scorch
+
+'
 --- !u!222 &786724481
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6426,7 +6428,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Titan1
+  m_Text: 'Ion
+
+'
 --- !u!222 &1363129311
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -35,26 +35,26 @@ public class Titan1Dmg : MonoBehaviour
 
             if (enemyHealth.currentHealth <= 0 && !enemyAnim.GetBool("isDead"))
             {
-                if (health_and_call_titan_script.titanfallMeter <= 100)
+                if (CoreAbility.canActiveLaser <= 100)
                 {
                     if (collision.gameObject.CompareTag("enemyPilot"))
                     {
-                        health_and_call_titan_script.titanfallMeter += 10;
+                        CoreAbility.canActiveLaser += 10;
                         print("Impact pilot");
                     }
                     else if (collision.gameObject.CompareTag("enemyTitan"))
                     {
-                        health_and_call_titan_script.titanfallMeter += 50;
+                        CoreAbility.canActiveLaser += 50;
                         print("impact enemyTitan");
                     }
 
                 }
 
-                if (health_and_call_titan_script.titanfallMeter > 100)
+                if (CoreAbility.canActiveLaser > 100)
                 {
-                    health_and_call_titan_script.titanfallMeter = 100;
+                    CoreAbility.canActiveLaser = 100;
                 }
-                print("Titanfall " + health_and_call_titan_script.titanfallMeter);
+                //print("Titanfall " + health_and_call_titan_script.titanfallMeter);
 
                 enemyAnim.SetBool("isDead", true);
             }

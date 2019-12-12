@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Dashing : MonoBehaviour
 {
     private int dashes = 3;
+    public Text dashesCounter;
 
     private Rigidbody rb;
 
@@ -32,6 +34,8 @@ public class Dashing : MonoBehaviour
                 rb.AddForce(rb.velocity.normalized * 150, ForceMode.Impulse);
             }
         }
+
+        dashesCounter.text = "Dash counter: " + dashes;
     }
 
     private async void regenerate_dashes()
