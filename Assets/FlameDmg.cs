@@ -43,34 +43,19 @@ public class FlameDmg : MonoBehaviour
 
     void calculateDamage(GameObject enemy, HealthScript enemyHealth, string enemyType)
     {
-        if (enemyHealth != null)
+        if (enemy.GetComponent<Animator>() != null)
         {
-            enemyHealth.currentHealth -= 100;
-            if (enemyHealth.currentHealth <= 0 && !enemy.GetComponent<Animator>().GetBool("isDead"))
+            enemy.GetComponent<Animator>().SetBool("Hit", true);
+            if (enemyHealth != null)
             {
-                //if (CoreAbility2.canActiveFlame <= 100)
-                //{
-                //    if (enemy.gameObject.CompareTag("enemyPilot"))
-                //    {
-                //        CoreAbility2.canActiveFlame += 10;
-                //        print("Impact pilot");
-                //    }
-                //    else if (enemy.gameObject.CompareTag("enemyTitan"))
-                //    {
-                //        CoreAbility2.canActiveFlame += 50;
-                //        print("impact enemyTitan");
-                //    }
+                enemyHealth.currentHealth -= 100;
+                if (enemyHealth.currentHealth <= 0 && !enemy.GetComponent<Animator>().GetBool("isDead"))
+                {
+                    enemy.GetComponent<Animator>().SetBool("isDead", true);
+                }
 
-                //}
-
-                //if (CoreAbility2.canActiveFlame > 100)
-                //{
-                //    CoreAbility2.canActiveFlame = 100;
-                //}
-                //print("Titanfall " + health_and_call_titan_script.titanfallMeter);
-                enemy.GetComponent<Animator>().SetBool("isDead", true);
             }
-
         }
+        
     }
 }

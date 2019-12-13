@@ -14,6 +14,9 @@ public class DefensiveAbility2 : MonoBehaviour
 
     public Text defensiveAbilityCoolDownTimer;
     private int coolDownCounter = 15;
+    public AudioSource source;
+    public AudioClip abilitySound;
+
     // Start is called before the first frame update
     IEnumerator waitEightSeconds(){
 
@@ -59,6 +62,8 @@ public class DefensiveAbility2 : MonoBehaviour
                 thermalSheild.gameObject.SetActive(true);
                 shieldActive = true;
                 coolDownCounter = 0;
+                source.clip = abilitySound;
+                source.Play();
                 StartCoroutine(waitEightSeconds());
             }
         }

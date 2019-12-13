@@ -5,6 +5,8 @@ using UnityEngine;
 public class Titan2Weapon : MonoBehaviour
 {
     public GameObject bullet;
+    public AudioSource source;
+    public AudioClip fireSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +26,9 @@ public class Titan2Weapon : MonoBehaviour
 
             cloneObject.tag = "Primary";
             cloneObject.gameObject.GetComponent<Rigidbody>().velocity = this.transform.TransformDirection(Vector3.left * 30);
+
+            source.clip = fireSound;
+            source.Play();
 
         }
     }

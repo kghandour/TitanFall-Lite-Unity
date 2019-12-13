@@ -16,6 +16,9 @@ public class DefensiveAbility : MonoBehaviour
     public Text defensiveAbilityCoolDownTimer;
     private int coolDownCounter = 15;
 
+    public AudioSource source;
+    public AudioClip abilitySound;
+
     IEnumerator waitTwoSeconds(){
         yield return new WaitForSeconds(1.5f);
         sheild.gameObject.SetActive(true);
@@ -79,6 +82,9 @@ public class DefensiveAbility : MonoBehaviour
                 sheild.gameObject.SetActive(true);
                 shieldActive = true;
                 coolDownCounter = 0;
+
+                source.clip = abilitySound;
+                source.Play();
                 StartCoroutine(waitFiveSeconds());
                 
             }

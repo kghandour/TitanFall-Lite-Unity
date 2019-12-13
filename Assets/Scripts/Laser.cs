@@ -5,6 +5,7 @@ using UnityEngine;
 public class Laser : MonoBehaviour
 {
     private LineRenderer lr;
+    private
     // Start is called before the first frame update
     void Start()
     {
@@ -40,31 +41,19 @@ public class Laser : MonoBehaviour
 
     void calculateDamage(GameObject enemy, HealthScript enemyHealth, string enemyType)
     {
-        if (enemyHealth != null)
+        if (enemy.GetComponent<Animator>() != null)
         {
-            enemyHealth.currentHealth -= 500;
-            if (enemyHealth.currentHealth <= 0 && !enemy.GetComponent<Animator>().GetBool("isDead"))
+            enemy.GetComponent<Animator>().SetBool("Hit", true);
+            if (enemyHealth != null)
             {
-                //if (health_and_call_titan_script.titanfallMeter <= 100)
-                //{
-                //    if (enemyType == "enemyPilot")
-                //    {
-                //        health_and_call_titan_script.titanfallMeter += 10;
-                //    }
-                //    else if (enemyType == "enemyTitan")
-                //    {
-                //        health_and_call_titan_script.titanfallMeter += 50;
-                //    }
-                //}
+                enemyHealth.currentHealth -= 500;
+                if (enemyHealth.currentHealth <= 0 && !enemy.GetComponent<Animator>().GetBool("isDead"))
+                {
+                    enemy.GetComponent<Animator>().SetBool("isDead", true);
+                }
 
-                //if (health_and_call_titan_script.titanfallMeter > 100)
-                //{
-                //    health_and_call_titan_script.titanfallMeter = 100;
-                //}
-                //print("Titanfall " + health_and_call_titan_script.titanfallMeter);
-                enemy.GetComponent<Animator>().SetBool("isDead", true);
             }
-
         }
+        
     }
 }

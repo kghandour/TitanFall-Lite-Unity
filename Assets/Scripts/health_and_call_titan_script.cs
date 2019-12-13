@@ -39,6 +39,7 @@ public class health_and_call_titan_script : MonoBehaviour
     public AudioClip enemyDiesSound;
     public AudioClip bulletHitSound;
     public AudioClip hitSound;
+    public AudioClip callTitanSound;
 
 
     //private void OnEnable()
@@ -96,7 +97,12 @@ public class health_and_call_titan_script : MonoBehaviour
         {
             titanFallAvailable.gameObject.SetActive(true); //set text to indicate a player can perform a titanfall
             if (Input.GetKeyDown("t"))
+            {
+                source.clip = callTitanSound;
+                source.Play();
                 performTitanFall();
+            }
+                
         }
 
         if (isTitanClose() && Titan.gameObject.activeInHierarchy)

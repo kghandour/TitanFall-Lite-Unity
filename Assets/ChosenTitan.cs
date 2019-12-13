@@ -6,6 +6,8 @@ public class ChosenTitan : MonoBehaviour
 {
     public static int selectedTitan=0;
     public Canvas pauseCanvas;
+    public GameObject pilot;
+    public GameObject gamePlaySoundSource;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,8 +17,9 @@ public class ChosenTitan : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && pilot.GetComponent<health_and_call_titan_script>().health > 0)
         {
+            gamePlaySoundSource.GetComponent<AudioSource>().Stop();
             pauseCanvas.gameObject.SetActive(true);
             Time.timeScale = 0f;
         }

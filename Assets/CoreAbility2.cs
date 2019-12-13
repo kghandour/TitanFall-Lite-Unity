@@ -12,6 +12,8 @@ public class CoreAbility2 : MonoBehaviour
 
     public static int canActiveFlame = 0;
     public Slider coreAbilityMeterBar;
+    public AudioSource source;
+    public AudioClip abilitySound;
 
     IEnumerator waitThreeSeconds(){
         yield return new WaitForSeconds(2f);
@@ -32,6 +34,8 @@ public class CoreAbility2 : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.V))
             {
                 Flame.gameObject.SetActive(true);
+                source.clip = abilitySound;
+                source.Play();
                 //Flame.enableEmission = true;
                 StartCoroutine(waitThreeSeconds());
             canActiveFlame = 0;

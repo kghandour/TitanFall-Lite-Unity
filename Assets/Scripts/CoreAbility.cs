@@ -10,6 +10,9 @@ public class CoreAbility : MonoBehaviour
     public GameObject Laser;
     public static int canActiveLaser = 0;
     public Slider coreAbilityMeterBar;
+
+    public AudioSource source;
+    public AudioClip abilitySound;
     // Start is called before the first frame update
 
     IEnumerator waitThreeSeconds(){
@@ -32,10 +35,12 @@ public class CoreAbility : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.V))
             {
-            anim.SetBool("onCoreClick", true);
-            Laser.gameObject.SetActive(true);
-            StartCoroutine(waitThreeSeconds());
-            canActiveLaser = 0;
+                anim.SetBool("onCoreClick", true);
+                Laser.gameObject.SetActive(true);
+                source.clip = abilitySound;
+                source.Play();
+                StartCoroutine(waitThreeSeconds());
+                canActiveLaser = 0;
             }
         }
         coreAbilityMeterBar.value = canActiveLaser;
