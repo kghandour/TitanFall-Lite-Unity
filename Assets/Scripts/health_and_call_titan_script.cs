@@ -32,7 +32,13 @@ public class health_and_call_titan_script : MonoBehaviour
     public Camera uselessCamera;
 
     public AudioSource source;
+
+    public AudioSource hitSource;
+    public AudioSource bulletSource;
+
     public AudioClip enemyDiesSound;
+    public AudioClip bulletHitSound;
+    public AudioClip hitSound;
 
 
     //private void OnEnable()
@@ -189,7 +195,13 @@ public class health_and_call_titan_script : MonoBehaviour
         }
     }
 
-    
+    public void hit(int damage)
+    {
+        health -= damage;
+        timeAfterLastDamage = 0;
+        bulletSource.PlayOneShot(bulletHitSound);
+        hitSource.PlayOneShot(hitSound);
+    }
 
 
 }

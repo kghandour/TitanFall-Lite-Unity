@@ -24,7 +24,6 @@ public class HealthScript : MonoBehaviour
         }
 
         currentHealth = maxHealth;
-
     }
 
     private void Update()

@@ -46,8 +46,7 @@ public class EnemyShootingScript : MonoBehaviour
                     TitanHealthAndDisembarkScript playerTitanHealth = hit.transform.gameObject.GetComponent<TitanHealthAndDisembarkScript>();
                     if (playerHealth != null)
                     {
-                        playerHealth.health -= gun.damageAmount;
-                        playerHealth.timeAfterLastDamage = 0;
+                        playerHealth.hit(gun.damageAmount);
                         anim.SetBool("fireNow", false);
                     }
                     if(playerTitanHealth != null)
@@ -56,8 +55,6 @@ public class EnemyShootingScript : MonoBehaviour
                         anim.SetBool("fireNow", false);
                     }
                 }
-                
-
             }
             //else
             //{

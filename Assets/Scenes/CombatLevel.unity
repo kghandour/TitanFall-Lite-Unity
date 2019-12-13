@@ -4953,6 +4953,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2424318888615685405, guid: 0abd9276a7cfe42088ff190186afd31a,
+        type: 3}
+      propertyPath: pauseCanvas
+      value: 
+      objectReference: {fileID: 507514744}
+    - target: {fileID: 271398096809706636, guid: 0abd9276a7cfe42088ff190186afd31a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5230285877415441836, guid: 0abd9276a7cfe42088ff190186afd31a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4739640284946382403, guid: 0abd9276a7cfe42088ff190186afd31a,
         type: 3}
       propertyPath: gameOverCanvas
@@ -4963,20 +4978,25 @@ PrefabInstance:
       propertyPath: uselessCamera
       value: 
       objectReference: {fileID: 931315243}
-    - target: {fileID: 2424318888615685405, guid: 0abd9276a7cfe42088ff190186afd31a,
+    - target: {fileID: 4739640284946382403, guid: 0abd9276a7cfe42088ff190186afd31a,
         type: 3}
-      propertyPath: pauseCanvas
+      propertyPath: enemyBulletHitSound
       value: 
-      objectReference: {fileID: 507514744}
+      objectReference: {fileID: 8300000, guid: 5abd0524392e02f45860b6844f978277, type: 3}
+    - target: {fileID: 4739640284946382403, guid: 0abd9276a7cfe42088ff190186afd31a,
+        type: 3}
+      propertyPath: enemyHitSound
+      value: 
+      objectReference: {fileID: 8300000, guid: f7b6ebffb60a87041b2cfbed421ef42a, type: 3}
+    - target: {fileID: 277707627, guid: 0abd9276a7cfe42088ff190186afd31a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1001246587, guid: 0abd9276a7cfe42088ff190186afd31a, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1001246587, guid: 0abd9276a7cfe42088ff190186afd31a, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 277707627, guid: 0abd9276a7cfe42088ff190186afd31a, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
