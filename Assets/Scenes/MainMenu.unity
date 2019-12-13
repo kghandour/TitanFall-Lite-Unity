@@ -2184,7 +2184,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -7801442152983728446, guid: cee4f96fcd0356840ac4990d5c5e93a3,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 290f0548af50bc14d9cc411b98d9e81b, type: 3}
+  m_audioClip: {fileID: 8300000, guid: dcc6120c108a5af41970ea8b4a834ec6, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -10775,6 +10775,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseCanvas: {fileID: 0}
+  endgameCanvas: {fileID: 0}
   pilot: {fileID: 0}
   gamePlaySoundSource: {fileID: 0}
 --- !u!1 &2055626536
