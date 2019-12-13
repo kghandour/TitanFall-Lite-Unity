@@ -20,7 +20,7 @@ public class Titan2Weapon : MonoBehaviour
         {
             GameObject cloneObject;
             cloneObject = Instantiate(bullet, this.transform.position, this.transform.rotation);
-            cloneObject.transform.Translate(Vector3.left * 1.1f);
+            cloneObject.transform.Translate(Vector3.left * 3f);
             //cloneObject.transform.Translate(Vector3.up * 2f);
 
 
