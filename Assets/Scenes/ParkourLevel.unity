@@ -324,7 +324,7 @@ CapsuleCollider:
   m_Radius: 0.5
   m_Height: 1.41
   m_Direction: 1
-  m_Center: {x: 0, y: -0.43, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &192609997 stripped
 CapsuleCollider:
   m_CorrespondingSourceObject: {fileID: 4739640284946382406, guid: 0abd9276a7cfe42088ff190186afd31a,
@@ -445,6 +445,11 @@ PrefabInstance:
       propertyPath: standingCollider
       value: 
       objectReference: {fileID: 192609997}
+    - target: {fileID: 8679929185778587356, guid: 0abd9276a7cfe42088ff190186afd31a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0abd9276a7cfe42088ff190186afd31a, type: 3}
 --- !u!4 &298126886 stripped
