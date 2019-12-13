@@ -25,8 +25,10 @@ public class EnemyTitanScript : MonoBehaviour
 
     //public PrimaryWeapons gun;
     public AudioSource source;
+    public AudioSource source2;
     public AudioClip gunSound;
     public AudioClip hitSound;
+    public AudioClip bulletCollisionSound;
     public AudioClip deathSound;
     public AudioClip walkingSound;
 

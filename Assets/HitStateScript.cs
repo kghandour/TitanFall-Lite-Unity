@@ -8,9 +8,12 @@ public class HitStateScript : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         EnemyTitanScript enemy = animator.gameObject.GetComponent<EnemyTitanScript>();
-        enemy.source.clip = enemy.hitSound;
+        //enemy.source.clip = enemy.hitSound;
         enemy.source.loop = false;
-        enemy.source.Play();
+        enemy.source.PlayOneShot(enemy.hitSound);
+        //enemy.source.clip = enemy.bulletCollisionSound;
+        enemy.source.loop = false;
+        enemy.source.PlayOneShot(enemy.bulletCollisionSound);
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
