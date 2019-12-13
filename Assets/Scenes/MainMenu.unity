@@ -10786,8 +10786,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 0, y: -73}
+  m_SizeDelta: {x: 700, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2055626538
 MonoBehaviour:
@@ -10820,7 +10820,21 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 'Models:
+
+    Ronin Titan and Pilot models were obtained from Sketchfab.com
+
+    Weapons and Bullets were obtained from free3d.com
+
+    AK-47 Model was obtained from the Modern Weapon Pack
+
+    Animations were obtained from Mixamo.com
+
+    Sound effects were obtained from freesound.org
+
+
+    Titanfall is a game originally created by EA. This game is done for academic purposes
+    only.'
 --- !u!222 &2055626539
 CanvasRenderer:
   m_ObjectHideFlags: 0
