@@ -19,7 +19,7 @@ public class Titan1Weapon : MonoBehaviour
         {
             GameObject cloneObject;
             cloneObject = Instantiate(bullet, this.transform.position, this.transform.rotation);
-            cloneObject.transform.Translate(Vector3.forward * 1.1f);
+            cloneObject.transform.Translate(Vector3.forward * 1.2f);
             //cloneObject.transform.Translate(Vector3.up * 2f);
 
 
@@ -27,7 +27,7 @@ public class Titan1Weapon : MonoBehaviour
             cloneObject.gameObject.GetComponent<Rigidbody>().velocity = this.transform.TransformDirection(Vector3.forward * 30);
 
             cloneObject = Instantiate(bullet, this.transform.position, this.transform.rotation);
-            cloneObject.transform.Translate(Vector3.forward * 1.1f);
+            cloneObject.transform.Translate(Vector3.forward * 1.2f);
             //cloneObject.transform.Translate(Vector3.up * 2f);
             cloneObject.transform.Translate(Vector3.left * 0.7f);
 
@@ -37,7 +37,7 @@ public class Titan1Weapon : MonoBehaviour
             cloneObject.gameObject.GetComponent<Rigidbody>().velocity = this.transform.TransformDirection(Vector3.forward * 30);
 
             cloneObject = Instantiate(bullet, this.transform.position, this.transform.rotation);
-            cloneObject.transform.Translate(Vector3.forward * 1.1f);
+            cloneObject.transform.Translate(Vector3.forward * 1.2f);
             //cloneObject.transform.Translate(Vector3.up * 2f);
             cloneObject.transform.Translate(Vector3.right * 0.7f);
 

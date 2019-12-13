@@ -33,19 +33,22 @@ public class WeaponManager : MonoBehaviour
     public static int heavyDamage;
     public static string heavyWeaponName;
 
-
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        if(currentPrimary == null)
+        if (currentPrimary == null)
         {
             currentPrimary = Shotgun;
         }
-        if(currentHeavy == null)
+        if (currentHeavy == null)
         {
             currentHeavy = RocketLauncher;
         }
         UpdateWeapon();
+    }
+    // Start is called before the first frame update
+    void Start()
+    {
+        
     }
 
     // Update is called once per frame

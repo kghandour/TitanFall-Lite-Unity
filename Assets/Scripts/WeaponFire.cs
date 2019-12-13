@@ -26,6 +26,8 @@ public class WeaponFire : MonoBehaviour
     {
         projectile = bulletObject.gameObject.GetComponent<Rigidbody>();
         bulletsList = new List<Bullet>();
+        ammoLeft = WeaponManager.ammoCount;
+
     }
 
     bool firing;
@@ -123,6 +125,7 @@ public class WeaponFire : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.R))
             {
                 ammoLeft = WeaponManager.ammoCount;
+                print("reloaded and ammo left is " + ammoLeft);
             }
             
         }
@@ -182,10 +185,7 @@ public class WeaponFire : MonoBehaviour
         }
         if (WeaponManager.primaryEquipped)
         {
-            if (bulletsList.Count < WeaponManager.ammoCount)
-                ammo.text = "Ammo: " + (WeaponManager.ammoCount - bulletsList.Count) + " / " + WeaponManager.ammoCount;
-            else
-                ammo.text = "Ammo: " + ammoLeft + " / " + WeaponManager.ammoCount;
+            ammo.text = "Ammo: " + ammoLeft + " / " + WeaponManager.ammoCount;
 
             weaponName.text = "Weapon: " + WeaponManager.weaponName;
         }
