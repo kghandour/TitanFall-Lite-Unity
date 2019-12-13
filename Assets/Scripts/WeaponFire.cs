@@ -21,6 +21,9 @@ public class WeaponFire : MonoBehaviour
 
     Bullet heavyBullet;
 
+    private AudioSource audio_source;
+    public AudioClip bullet_fired_clip;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +31,7 @@ public class WeaponFire : MonoBehaviour
         bulletsList = new List<Bullet>();
         ammoLeft = WeaponManager.ammoCount;
 
+        audio_source = GetComponent<AudioSource>();
     }
 
     bool firing;
@@ -93,6 +97,8 @@ public class WeaponFire : MonoBehaviour
                     b.rigidBody.velocity = this.transform.TransformDirection(Vector3.forward * bulletSpeed);
                     ammoLeft -= 1;
                     bulletsFired += 1;
+
+                    firingSound();
                 }
                 else
                 {
@@ -112,11 +118,11 @@ public class WeaponFire : MonoBehaviour
                                 ammoLeft -= 1;
                                 bulletsFired += 1;
 
+                                firingSound();
+
                                 break;
                             }
                         }
-
-                        
                     }
                 }
             }
@@ -198,5 +204,8 @@ public class WeaponFire : MonoBehaviour
         
     }
 
-    
+    private void firingSound()
+    {
+        audio_source.PlayOneShot(bullet_fired_clip);
+    }
 }
