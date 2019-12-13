@@ -35,38 +35,11 @@ public class TitanHealthAndDisembarkScript : MonoBehaviour
         secondaryCamera.SetActive(true);
         yield return new WaitForSeconds(0.5f);
         secondaryCamera.SetActive(false);
-        //Vector3 positionAfterDisembark = new Vector3(0, 0, 0);
-        //if (ChosenTitan.selectedTitan == 0)
-        //{
-        //    positionAfterEmbark = Titan.transform.position;
-        //    TitanPlayer.transform.position = positionAfterEmbark;
-        //}
-        //else if (ChosenTitan.selectedTitan == 1)
-        //{
-        //    positionAfterEmbark = Titan2.transform.position;
-        //    TitanPlayer2.transform.position = positionAfterEmbark;
-        //}
-        //positionAfterEmbark = Titan.transform.position;
-        //TitanPlayer.transform.position = positionAfterEmbark;
-
-        //Pilot.transform.position = positionAfterEmbark;
-        //Titan.SetActive(false);
-        //Titan2.SetActive(false);
-        //Pilot.SetActive(false);
-        //if (ChosenTitan.selectedTitan == 0)
-        //{
-        //    TitanPlayer.SetActive(true);
-        //    Titan.transform.parent = Pilot.transform;
-        //}
-        //else if (ChosenTitan.selectedTitan == 1)
-        //{
-        //    TitanPlayer2.SetActive(true);
-        //    Titan2.transform.parent = Pilot.transform;
-        //}
 
         health = 400;
         CoreAbility.canActiveLaser = 0;
         Pilot.GetComponent<health_and_call_titan_script>().titanDeployed = false;
+        Pilot.transform.position = TitanPlayer.transform.position;
         TitanPlayer.SetActive(false);
         Pilot.SetActive(true);
     }
