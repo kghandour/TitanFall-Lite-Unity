@@ -51,7 +51,7 @@ public class EnemyShootingScript : MonoBehaviour
                     }
                     if(playerTitanHealth != null)
                     {
-                        playerTitanHealth.health -= gun.damageAmount;
+                        playerTitanHealth.hit(gun.damageAmount);
                         anim.SetBool("fireNow", false);
                     }
                 }

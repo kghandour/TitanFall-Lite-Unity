@@ -17,6 +17,11 @@ public class TitanHealthAndDisembarkScript : MonoBehaviour
     public GameObject TitanPlayer;
     public GameObject secondaryCamera; //used as an effect for dimming the screen at embark time
 
+    public AudioSource hitSource;
+    public AudioSource bulletSource;
+
+    public AudioClip bulletHitSound;
+    public AudioClip hitSound;
 
     // Start is called before the first frame update
     void Start()
@@ -73,5 +78,12 @@ public class TitanHealthAndDisembarkScript : MonoBehaviour
         {
             StartCoroutine(Disembark());
         }
+    }
+
+    public void hit(int damage)
+    {
+        health -= damage;
+        bulletSource.PlayOneShot(bulletHitSound);
+        hitSource.PlayOneShot(hitSound);
     }
 }
