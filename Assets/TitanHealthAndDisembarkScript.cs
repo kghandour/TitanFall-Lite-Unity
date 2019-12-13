@@ -23,6 +23,8 @@ public class TitanHealthAndDisembarkScript : MonoBehaviour
     public AudioClip bulletHitSound;
     public AudioClip hitSound;
 
+    public int invincible = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -82,8 +84,12 @@ public class TitanHealthAndDisembarkScript : MonoBehaviour
 
     public void hit(int damage)
     {
-        health -= damage;
         bulletSource.PlayOneShot(bulletHitSound);
-        hitSource.PlayOneShot(hitSound);
+
+        if (invincible <= 0)
+        {
+            hitSource.PlayOneShot(hitSound);
+            health -= damage;
+        }
     }
 }

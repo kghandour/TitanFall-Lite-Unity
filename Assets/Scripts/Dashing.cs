@@ -11,10 +11,13 @@ public class Dashing : MonoBehaviour
 
     private Rigidbody rb;
 
+    private TitanHealthAndDisembarkScript titan_script;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        titan_script = GetComponent<TitanHealthAndDisembarkScript>();
     }
 
     // Update is called once per frame
@@ -32,6 +35,9 @@ public class Dashing : MonoBehaviour
                 dashes--;
 
                 rb.AddForce(rb.velocity.normalized * 150, ForceMode.Impulse);
+
+                titan_script.invincible++;
+                reset_invincible();
             }
         }
 
@@ -48,5 +54,11 @@ public class Dashing : MonoBehaviour
         {
             regenerate_dashes();
         }
+    }
+
+    private async void reset_invincible()
+    {
+        await Task.Delay(1000);
+        titan_script.invincible--;
     }
 }
