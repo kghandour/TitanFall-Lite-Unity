@@ -16,6 +16,9 @@ public class CrouchingScript : MonoBehaviour
 
     public bool isCrouching = false;
 
+    public CapsuleCollider standingCollider;
+    public CapsuleCollider crouchingCollider;
+
     void Start()
     {
         anim = model.GetComponent<Animator>();
@@ -52,12 +55,16 @@ public class CrouchingScript : MonoBehaviour
             anim.SetBool("isCrouching", false);
             isCrouching = false;
             fp_controller.movementSettings.isCrouching = false;
+            crouchingCollider.enabled = false;
+            standingCollider.enabled = true;
         }
         else
         {
             anim.SetBool("isCrouching", true);
             isCrouching = true;
             fp_controller.movementSettings.isCrouching = true;
+            crouchingCollider.enabled = true;
+            standingCollider.enabled = false;
         }
     }
 }
