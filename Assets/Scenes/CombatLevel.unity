@@ -4248,6 +4248,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: AllPlayerStuff
       objectReference: {fileID: 0}
+    - target: {fileID: 3568178668461959840, guid: 0abd9276a7cfe42088ff190186afd31a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 6764992740080001288, guid: 0abd9276a7cfe42088ff190186afd31a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4323,6 +4328,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 277707627, guid: 0abd9276a7cfe42088ff190186afd31a, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 271398096809706636, guid: 0abd9276a7cfe42088ff190186afd31a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5230285877415441836, guid: 0abd9276a7cfe42088ff190186afd31a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

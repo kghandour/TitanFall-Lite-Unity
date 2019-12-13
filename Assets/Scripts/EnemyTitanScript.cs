@@ -78,6 +78,11 @@ public class EnemyTitanScript : MonoBehaviour
     {
 
         player = GameObject.FindGameObjectWithTag("Player");
+        if( player == null)
+        {
+            Debug.Log("aaaaaaaa");
+
+        }
 
         if (Vector3.Distance(transform.position, player.transform.position) < allowedRange && !anim.GetBool("isFollowing") && isFollowingFlag)
         {
